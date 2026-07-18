@@ -624,3 +624,4 @@
 	icon='icons/roguetown/items/misc.dmi'
 	icon_state = "powderflask"
 	w_class = WEIGHT_CLASS_SMALL
+	slot_flags = ITEM_SLOT_NECK
