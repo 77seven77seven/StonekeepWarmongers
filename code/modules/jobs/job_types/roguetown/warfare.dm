@@ -470,6 +470,7 @@
 		shoes = /obj/item/clothing/shoes/roguetown/boots/war/stompers
 		belt = /obj/item/storage/belt/rogue/leather/rope/war
 		beltr = /obj/item/quiver/bullets
+		neck = /obj/item/rogue/barkenpowderflask
 		beltl = /obj/item/gun/ballistic/revolver/grenadelauncher/flintlock/pistol/sworded
 		mask = /obj/item/clothing/mask/rogue/war/mask/ppu
 		head = /obj/item/clothing/head/roguetown/war/pputricorn
@@ -1114,6 +1115,7 @@
 		shirt = /obj/item/clothing/suit/roguetown/shirt/war/regime/greatcoat
 		beltr = /obj/item/quiver/bullets/regime
 		beltl = /obj/item/gun/ballistic/revolver/grenadelauncher/flintlock/pistol/sworded/alternate
+		neck = /obj/item/rogue/barkenpowderflask
 		mask = /obj/item/clothing/mask/rogue/war/mask/regime
 		head = /obj/item/clothing/head/roguetown/war/regimepeaked
 
