@@ -437,10 +437,12 @@
 	if(!new_bandage)
 		return FALSE
 	// Prevent bandaging if the bodypart's location is covered by clothing/armor
+	/*
 	if(owner && !get_location_accessible(owner, body_zone))
 		if(owner.stat != DEAD)
 			to_chat(owner, "<span class='warning'>A bandage cannot be applied while that area is covered by clothing or armor.</span>")
 		return FALSE
+	*/
 	bandage = new_bandage
 	new_bandage.forceMove(src)
 	return TRUE
