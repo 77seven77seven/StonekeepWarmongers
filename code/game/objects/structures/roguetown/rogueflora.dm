@@ -358,7 +358,7 @@
 
 
 /obj/structure/flora/roguegrass/bush/update_icon()
-	icon_state = "bush"
+	icon_state = "bush1"
 
 /obj/structure/flora/roguegrass/bush/CanPass(atom/movable/mover, turf/target)
 	if(istype(mover) && (mover.pass_flags & PASSGRILLE))

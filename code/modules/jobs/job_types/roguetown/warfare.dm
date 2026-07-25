@@ -328,6 +328,7 @@
 		H.mind.AddSpell(new /obj/effect/proc_holder/spell/targeted/inspire)
 		H.cmode_music = 'sound/music/soberandhatingit.ogg'
 	ADD_TRAIT(H, TRAIT_NOBLE, TRAIT_GENERIC)
+	ADD_TRAIT(H, TRAIT_OFFICER, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_HEAVYARMOR, TRAIT_GENERIC)
 	//ADD_TRAIT(H, TRAIT_BLOODLOSS_IMMUNE, TRAIT_GENERIC)
 
@@ -974,6 +975,7 @@
 		H.mind.AddSpell(new /obj/effect/proc_holder/spell/targeted/inspire)
 		H.cmode_music = 'sound/music/makeamartyrofme.ogg'
 	ADD_TRAIT(H, TRAIT_NOBLE, TRAIT_GENERIC)
+	ADD_TRAIT(H, TRAIT_OFFICER, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_HEAVYARMOR, TRAIT_GENERIC)
 	//ADD_TRAIT(H, TRAIT_BLOODLOSS_IMMUNE, TRAIT_GENERIC)
 
