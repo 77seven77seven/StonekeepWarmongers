@@ -1,31 +1,28 @@
 Weapons sometimes have more than one intent option, for instance you can stab enemies with a musket that has a bayonet on it.
 Its best to stick together with your allies and coordinate your attacks, or you'll quickly be overwhelmed.
-Some objects such as cannons and bombards can be grabbed and dragged around, you can use this to pour explosive death on your foes at close range.
-As Ninja your main focus should be to flank and harass enemies using your bow and many bombs and traps, especially in chokepoints.
-Only Firelancers are able to properly operate Heartfelt firelances, trying to use one without proper training might result in death.
-Grenzelhoft Hussars spawn with a tamed and saddled saiga right underneath or next to them, you can use these to perform quick hit and run tactics on the enemy.
+Some objects such as barkstones (cannons) and bombtards/bombardiers (mortars) can be grabbed and dragged around, you can use this to pour explosive death on your foes at close range.
+Hussars spawn with a tamed and saddled hearse (horse) right underneath or next to them, you can use these to perform quick hit and run tactics on the enemy.
 As an Officer you should attempt to coordinate with and lead most soldiers, inspiring them before ordering a charge for the best results.
-There is no tip to playing Jester, just try and be funny.
-Heartfelt Sappers spawn with multiple sandbags in their backpack, use these to defend areas the enemy will most likely come through.
-Zweihanders and ZamuraI am most effective when accompanied by ranged infantry to provide cover to their devastating charges. Just know you'll be a priority for the foe.
-As Medic you can put limbs into the cranker to make healing potions, as well as being able to provide more supply points to your team.
+Melee classes am most effective when accompanied by ranged infantry to provide cover to their devastating charges. Just know you'll be a priority for the foe.
+As Medic you can put limbs into the SCHLaNKER to make chemical potions, as well as being able to provide more supply points to your team.
 Riflemen are far better shots than regular Musketeers, but far worse in melee. Utilize your higher Flintlock skill to snipe the enemy at a distance.
 The only thing a Musketeer has going for him is his rifle, learn to use it well and you might have a chance of surviving the first wave.
-Lords only spawn once, and if killed cannot respawn again. You are valuable given that you can use supply points to call in specialized equipment, such as bombs and bombards.
-You can stop bleeding on some limbs by grabbing it aggressively with a free hand or two. Drinking water also helps stop the bleeding.
+Team comamnders only spawn once, and if killed cannot respawn again. You are valuable given that you can use supply points to call in specialized equipment, such as bombs and bombtards.
+You can stop bleeding on some limbs by grabbing it with a free hand or two. Drinking water also helps stop the bleeding.
 You can drag your sprite onto walls to lean against them, use this to make yourself less of a visible target while still being able to fire back.
 You can climb up walls by clicking on them, and climb down by doing the same onto a tile below. Just know if the wall is too high you may fall and break something.
-Press 'C' by default or click the 'Combat Mode' button on the left side of your hud to activate combat mode. In this mode your will actively block melee attacks. Right click the button to yield and surrender.
+Press 'C' by default or click the 'Combat Mode' button on the left side of your hud to activate combat mode. In this mode your will actively block melee attacks. Right click the button to yield and surrender... and die with no dignity.
 Your stats determine if you should use parry or dodge, parry for those with high strength stats, and dodge for those with high speed stats.
 If you've fallen, click the arrow pointing up on the left hand side of your hud, likewise, press the arrow pointing down to lay down.
-By pressing the 'F' key by default or left clicking the eye on the hud, your character will continuously face the direction they were facing until it is clicked again or you press 'F'.
+By pressing the 'F' key by default or left clicking the eye on the hud, your character will continuously face the direction they were facing until it is clicked again or you press 'F'. This is GREAT for melee fighting!
 You will need fire to light most bombs and cannons, but you don't always need flint. If you see a torch on a wall you can click it to take it off the wall and hold it.
-Press the 'Run' button on your hud to run, but if you run out of stamina, which is the yellow bar just below the heart, you will stop running and be momentarily stunned. Likewise running into walls or people will stop you dead in your tracks.
+Press the 'Run' button on your hud to run, but if you run out of stamina, you will stop running and be momentarily stunned. Likewise running into walls will stop you dead in your tracks.
 Click on the heart icon on the hud to see your current health, it gives you an overview of your body, and you can then do some specific things, like pulling out shrapnel or bullets.
 At the very top of the hud on the left is the target dummy, you can click on different parts to specify where you are aiming. Your character will automatically aim for these parts of the enemy, likewise you can use it to heal specific body parts if needed.
-The 'Feint', 'Aimed', 'Strong', 'Defend' and 'Weak' modes on the left side of your left and right hand slots are different ways of attacking, right click them to see what they do.
-Left of your hand slots are buttons for 'Bite': Bites a target, 'Jump': Middle mouse to jump a tile, do it while running to jump further, 'Kick': Kick a target and 'Steal': Which attempts to steal an item from the part of the target you are targetting.
+The 'Feint', 'Aimed', 'Strong' and 'Defend' modes on the left side of your left and right hand slots are different ways of attacking, right click them to see what they do.
+Use the middle mouse button to use special intents!
 You can hold right or left click to look around without having to use the movement keys.
-To sleep, walk to a bed and drag your sprite onto it, then click the arrows around the eye just below the heart on your hud to close your eyes. After some time you will fall asleep. To unbuckle from the bed click the 'Buckled' status or press 'X' by default.
-Click the face just left of the eye on the hud to see your characters mood. Right click it to use a triumph point to raise your mood. Not that you'll have too long to enjoy it.
+Press X to resist from grabs and slap yourself to extinguish yourself from fire!
+Click your friends with an empty hand and the first intent to try and extinguish them, or wake them up!
+Click the face just left of the eye on the hud to see your characters mood. Right click it to use a TRIUMPH for a quick combat boost! Not that you'll have too long to enjoy it.
 You can store most items like flint and weapons such as rifles on your back, in satchels and backpacks, belt slots, or even belts themselves.

@@ -251,13 +251,21 @@ GLOBAL_LIST_EMPTY(asset_datums)
 			continue
 
 		// save flattened version
-		var/fname = "data/spritesheets/[name]_[size_id].png"
-		fcopy(size[SPRSZ_ICON], fname)
-		var/error = rustg_dmi_strip_metadata(fname)
+		var/png_name = "[name]_[size_id].png"
+		var/file_directory = "data/spritesheets/[png_name]"
+		fcopy(size[SPRSZ_ICON], file_directory)
+		var/error = rustg_dmi_strip_metadata(file_directory)
 		if(length(error))
-			stack_trace("Failed to strip [name]_[size_id].png: [error]")
-		size[SPRSZ_STRIPPED] = icon(fname)
-		fdel(fname)
+			stack_trace("Failed to strip [png_name]: [error]")
+		size[SPRSZ_STRIPPED] = icon(file_directory)
+
+		/*
+		// this is useful here for determining if weird sprite issues (like having a white background) are a cause of what we're doing DM-side or not since we can see the full flattened thing at-a-glance.
+		if(CONFIG_GET(flag/save_spritesheets))
+			save_to_logs(file_name = png_name, file_location = file_directory)
+		*/
+
+		fdel(file_directory)
 
 /datum/asset/spritesheet/proc/generate_css()
 	var/list/out = list()

@@ -99,7 +99,7 @@
 		if(newtime > 0)
 			return newtime
 		else
-			return 0.1
+			return 0
 	return chargetime
 
 /datum/intent/arc/crossbow

@@ -17,7 +17,7 @@
 	var/mob/living/carbon/grabbee
 	var/list/dependents = list()
 	var/handaction
-	var/bleed_suppressing = 0.1 //multiplier for how much we suppress bleeding, can accumulate so two grabs means 25% bleeding
+	var/bleed_suppressing = 0.4 //multiplier for how much we suppress bleeding, can accumulate so two grabs means 25% bleeding
 
 /atom/movable //reference to all obj/item/grabbing
 	var/list/grabbedby = list()

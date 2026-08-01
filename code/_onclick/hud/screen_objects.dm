@@ -525,7 +525,7 @@
 
 /atom/movable/screen/quad_intents/proc/switch_intent(input)
 	icon_state = "mmbintents0"
-	if(input in 1 to 4)
+	if(input in 1 to 3)
 		icon_state = "mmbintents[input]"
 
 /atom/movable/screen/quad_intents/Click(location, control, params)
@@ -535,6 +535,16 @@
 
 	var/_y = text2num(params2list(params)["icon-y"])
 
+	if(_y<=11)
+		usr.mmb_intent_change(QINTENT_KICK)
+
+	else if(_y>=11 && _y<=22)
+		usr.mmb_intent_change(QINTENT_JUMP)
+
+	else if(_y>=22 && _y<=32)
+		usr.mmb_intent_change(QINTENT_BITE)
+
+	/*
 	if(_y<=9)
 		usr.mmb_intent_change(QINTENT_STEAL)
 
@@ -546,6 +556,7 @@
 
 	else if(_y>=24 && _y<=32)
 		usr.mmb_intent_change(QINTENT_BITE)
+	*/
 
 
 /atom/movable/screen/give_intent

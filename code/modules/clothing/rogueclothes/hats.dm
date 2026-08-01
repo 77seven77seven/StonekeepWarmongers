@@ -196,19 +196,6 @@
 	icon_state = "fancy_hat"
 	item_state = "fancyhat"
 
-/obj/item/clothing/head/roguetown/offitser
-	name = "officer cap"
-	desc = "Standard issue for officers in the Grenzelhoft Imperiate."
-	icon_state = "officerhat"
-	item_state = "officerhat"
-	bloody_icon_state = "helmetblood_big"
-	bloody_icon = 'icons/effects/blood64x64.dmi'
-	flags_inv = HIDEHAIR
-	mob_overlay_icon = 'icons/roguetown/clothing/onmob/64x64/head.dmi'
-	worn_x_dimension = 64
-	worn_y_dimension = 64
-	dynamic_hair_suffix = ""
-
 /obj/item/clothing/head/roguetown/commander
 	name = "lords hat"
 	desc = "A hat commonly worn by commanders in the Grenzelhoft Imperiate, decorated with a shining gold psycross."

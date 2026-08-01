@@ -531,7 +531,7 @@ obj/item/clothing/suit/roguetown/armor/chainmail/iron/orc
 /obj/item/clothing/suit/roguetown/armor/plate/half/hussar
 	slot_flags = ITEM_SLOT_ARMOR
 	name = "hussar cuirass"
-	desc = "A cuirass belonging to a Grenzelhoftian Hussar. Such armor has two wings placed on its back, to add to its intimidation factor. The sight of a hundred Hussars is sometimes enough to turn the tide of battle."
+	desc = "A cuirass that belonged to an old-age Hussar, passed along to the new-age Hussars as tradition. The lost of a cuirass is the worst thing that can ever happen, and even enemies weep. The sight of Winged Hussars arriving is sometimes enough to turn the tide of battle."
 	icon_state = "hussarplate"
 	item_state = "hussarplate"
 	sleeved = 'icons/roguetown/clothing/onmob/helpers/sleeves_armor.dmi'

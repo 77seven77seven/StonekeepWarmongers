@@ -90,10 +90,12 @@ SUBSYSTEM_DEF(shuttle)
 	return ..()
 
 /datum/controller/subsystem/shuttle/proc/initial_load()
+	/*
 	for(var/s in stationary)
 		var/obj/docking_port/stationary/S = s
 		S.load_roundstart()
 		CHECK_TICK
+	*/
 
 /datum/controller/subsystem/shuttle/fire()
 	for(var/thing in mobile)

@@ -795,7 +795,7 @@
 	anchored = TRUE
 	density = FALSE
 	max_integrity = 35
-	layer = ABOVE_OPEN_TURF_LAYER
+	layer = 4
 	obj_flags = CAN_BE_HIT | BLOCK_Z_OUT_DOWN | BLOCK_Z_IN_UP
 
 /obj/structure/plank/h
