@@ -47,6 +47,7 @@
 	var/insert_preposition = "in"					//you put things "in" a bag, but "on" a tray.
 
 	var/display_numerical_stacking = FALSE			//stack things of the same type and show as a single object with a number.
+	var/display_store_indicator = TRUE				//show an indicator if the storage item contains something, because people are fucking DUMB and dont realize if something is a storage item
 
 	var/atom/movable/screen/storage/boxes					//storage display object
 	var/atom/movable/screen/close/closer						//close button object
@@ -379,6 +380,12 @@
 	if(display_numerical_stacking)
 		numbered_contents = _process_numerical_display()
 		adjusted_contents = numbered_contents.len
+	if(display_store_indicator)
+		var/mutable_appearance/overlay = mutable_appearance('icons/obj/storage.dmi', "indicator")
+
+		real_location.cut_overlay(overlay)
+		if(adjusted_contents)
+			real_location.add_overlay(overlay)
 
 	var/columns = CLAMP(max_items, 1, screen_max_columns)
 	var/rows = CLAMP(CEILING(adjusted_contents / columns, 1), 1, screen_max_rows)
@@ -768,6 +775,13 @@
 	if(isobj(parent))
 		var/obj/O = parent
 		O.update_icon()
+
+		if(display_store_indicator)
+			var/mutable_appearance/overlay = mutable_appearance('icons/obj/storage.dmi', "indicator")
+
+			O.cut_overlay(overlay)
+			if(O.contents.len)
+				O.add_overlay(overlay)
 
 /datum/component/storage/proc/signal_insertion_attempt(datum/source, obj/item/I, mob/M, silent = FALSE, force = FALSE)
 	if((!force && !can_be_inserted(I, TRUE, M)) || (I == parent))

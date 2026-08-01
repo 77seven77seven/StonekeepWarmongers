@@ -1,5 +1,8 @@
 /obj/item/storage/equipped(mob/user, slot)
 	. = ..()
+	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
+	STR.orient2hud(user)
+
 	for(var/obj/item/reagent_containers/I in contents)
 		if(I.reagents && I.spillable)
 			RegisterSignal(user, COMSIG_MOVABLE_MOVED, PROC_REF(check_spill), override = TRUE)
