@@ -530,7 +530,7 @@
 		return 1
 	if(istype(mover, /obj/projectile))
 		return 1
-	if(istype(mover, /obj/item/bomb))
+	if(istype(mover, /obj/item/rogue/bomb))
 		return 0
 	if(isobj(mover)) // i have no idea at this point
 		return 1

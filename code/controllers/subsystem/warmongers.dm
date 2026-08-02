@@ -152,39 +152,39 @@ SUBSYSTEM_DEF(warmongers)
 	var/list/reinforcementinas = list()
 	switch(W.reinforcementwave)
 		if(1)
-			reinforcementinas += "/obj/item/bomb"
-			reinforcementinas += "/obj/item/bomb/fire/weak"
+			reinforcementinas += "/obj/item/rogue/bomb"
+			reinforcementinas += "/obj/item/rogue/bomb/fire/mollie"
 		if(2)
-			reinforcementinas += "/obj/item/bomb"
-			reinforcementinas += "/obj/item/bomb"
-			reinforcementinas += "/obj/item/bomb/fire/weak"
-			reinforcementinas += "/obj/item/bomb/smoke"
+			reinforcementinas += "/obj/item/rogue/bomb"
+			reinforcementinas += "/obj/item/rogue/bomb"
+			reinforcementinas += "/obj/item/rogue/bomb/fire"
+			reinforcementinas += "/obj/item/rogue/bomb/smoke"
 			reinforcementinas += "/obj/item/flint"
 			SSwarmongers.warfare_techlevel = WARMONGERS_TECHLEVEL_FLINTLOCKS
 			to_chat(world, "<span class='notice'>This battle will soon get too heated for these shopkeepers!</span>")
 		if(3)
-			reinforcementinas += "/obj/item/bomb/smoke"
-			reinforcementinas += "/obj/item/bomb/fire"
-			reinforcementinas += "/obj/item/bomb/poison"
-			reinforcementinas += "/obj/item/bomb"
-			reinforcementinas += "/obj/item/bomb"
+			reinforcementinas += "/obj/item/rogue/bomb/smoke"
+			reinforcementinas += "/obj/item/rogue/bomb/fire"
+			reinforcementinas += "/obj/item/rogue/bomb/poison"
+			reinforcementinas += "/obj/item/rogue/bomb"
+			reinforcementinas += "/obj/item/rogue/bomb"
 			to_chat(world, "<span class='notice'>This battle is getting too heated for these shopkeepers! They're leaving!</span>")
 			for(var/obj/structure/shopkeep/SHP in world)
 				SHP.leave()
 		if(4)
-			reinforcementinas += "/obj/item/bomb/fire"
-			reinforcementinas += "/obj/item/bomb/fire"
-			reinforcementinas += "/obj/item/bomb/poison"
-			reinforcementinas += "/obj/item/bomb/poison"
+			reinforcementinas += "/obj/item/rogue/bomb/fire"
+			reinforcementinas += "/obj/item/rogue/bomb/fire"
+			reinforcementinas += "/obj/item/rogue/bomb/poison"
+			reinforcementinas += "/obj/item/rogue/bomb/poison"
 			SSwarmongers.warfare_techlevel = WARMONGERS_TECHLEVEL_COWBOY
 			to_chat(world, "<span class='notice'>OUR NATION'S ARMORY IS EVOLVING! PROTOTYPE WEAPONRY AUTHORIZED!</span>")
 		if(5)
-			reinforcementinas += "/obj/item/bomb"
-			reinforcementinas += "/obj/item/bomb"
-			reinforcementinas += "/obj/item/bomb/fire"
-			reinforcementinas += "/obj/item/bomb/smoke"
-			reinforcementinas += "/obj/item/bomb/poison"
-			reinforcementinas += "/obj/item/bomb/poison"
+			reinforcementinas += "/obj/item/rogue/bomb"
+			reinforcementinas += "/obj/item/rogue/bomb"
+			reinforcementinas += "/obj/item/rogue/bomb/fire"
+			reinforcementinas += "/obj/item/rogue/bomb/smoke"
+			reinforcementinas += "/obj/item/rogue/bomb/poison"
+			reinforcementinas += "/obj/item/rogue/bomb/poison"
 	W.reinforcementwave++
 	to_chat(world, "<span class='info'><span class='typewrite'>Supplies have arrived.</span></span>")
 	for(var/mob/M in GLOB.player_list)

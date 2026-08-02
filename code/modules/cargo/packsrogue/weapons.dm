@@ -38,11 +38,6 @@
 	cost = 20
 	contains = /obj/item/rogueweapon/flail
 
-/datum/supply_pack/rogue/weapons/bomb
-	name = "Battle Bomb"
-	cost = 140
-	contains = /obj/item/bomb/homemade
-
 /datum/supply_pack/rogue/weapons/shield
 	name = "Wooden Shield"
 	cost = 10

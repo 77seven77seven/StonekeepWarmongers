@@ -600,7 +600,7 @@ GLOBAL_PROTECT(admin_verbs_hideable)
 		if(null)
 			return 0
 		if("Roguebomb")
-			var/obj/item/bomb/B = new(epicenter)
+			var/obj/item/rogue/bomb/B = new(epicenter)
 			B.light()
 			B.explode(TRUE)
 		if("Small Bomb (1, 2, 3, 3)")

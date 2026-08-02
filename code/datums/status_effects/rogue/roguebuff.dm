@@ -300,7 +300,7 @@
 /datum/status_effect/buff/spawn_protection
 	id = "spawnprotect"
 	alert_type = null
-	duration = 250
+	duration = 45 SECONDS
 
 /datum/status_effect/buff/spawn_protection/on_apply()
 	owner.status_flags |= GODMODE

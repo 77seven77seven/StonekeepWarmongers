@@ -65,7 +65,7 @@
 		if(aspect_chosen(/datum/round_aspect/explodeatwill))
 			user.say(warcry)
 			spawn(2 SECONDS)
-				var/obj/item/bomb/B = new(get_turf(user))
+				var/obj/item/rogue/bomb/B = new(get_turf(user))
 				B.light()
 				B.explode(TRUE)
 				user.gib()

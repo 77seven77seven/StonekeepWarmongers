@@ -204,7 +204,7 @@
 	w_class = WEIGHT_CLASS_GIGANTIC // INSTANTLY crushed
 	var/plusy = 0 // no pussy jokes.
 	var/firing = FALSE
-	var/obj/item/bomb/loaded
+	var/obj/item/rogue/bomb/loaded
 
 /obj/structure/bombard/alt // regime
 	name = "mortard"
@@ -245,6 +245,7 @@
 			// these vars are reset automatically when a person tries to move
 			user.client.eye = epicenter
 			user.client.perspective = EYE_PERSPECTIVE
+			user.update_cone_show()
 			user.RegisterSignal(user, COMSIG_MOVABLE_PRE_MOVE, TYPE_PROC_REF(/mob/living, stop_looking))
 
 /obj/structure/bombard/examine(mob/user)
@@ -286,7 +287,7 @@
 	if(istype(I, /obj/item/ammo_casing/caseless/rogue/cball))
 		to_chat(user, "<span class='warning'>It won't work, I need a bomb.</span>")
 		return
-	if(istype(I, /obj/item/bomb))
+	if(istype(I, /obj/item/rogue/bomb))
 		if(loaded)
 			return
 		user.visible_message("<span class='notice'>\The [user] begins loading \the [I] into \the [src].</span>")

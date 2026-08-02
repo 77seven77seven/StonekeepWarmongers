@@ -402,7 +402,7 @@
 		neck = /obj/item/rogue/barkenpowderflask
 		head = /obj/item/clothing/head/roguetown/war/suncap
 		mask = /obj/item/clothing/mask/rogue/war/mask/ppu
-		backpack_contents = list(/obj/item/bomb/poison=1,/obj/item/bomb/smoke=2)
+		backpack_contents = list(/obj/item/rogue/bomb/poison=1,/obj/item/rogue/bomb/smoke=2)
 	else if(loadout == "irregular")
 		pants = /obj/item/clothing/under/roguetown/trou/war/pantaloons/alternate
 		cloak = /obj/item/clothing/cloak/war/ppr/scarf
@@ -601,7 +601,7 @@
 		backl = /obj/item/storage/backpack/rogue/satchel
 		neck = /obj/item/rogue/barkenpowderflask
 		head = /obj/item/clothing/head/roguetown/helmet/war/ppr/nimrodhelm
-		backpack_contents = list(/obj/item/bomb/smoke=2,/obj/item/bomb=1)
+		backpack_contents = list(/obj/item/rogue/bomb/smoke=2,/obj/item/rogue/bomb=1)
 	else if(loadout == "scout")
 		pants = /obj/item/clothing/under/roguetown/trou/war/pantaloons
 		shirt = /obj/item/clothing/suit/roguetown/shirt/war/ppr/basicshirt
@@ -613,7 +613,7 @@
 		backl = /obj/item/storage/backpack/rogue/satchel
 		neck = /obj/item/rogue/barkenpowderflask
 		head = /obj/item/clothing/head/roguetown/helmet/war/ppr/nimrodhelm/alternate
-		backpack_contents = list(/obj/item/bomb/smoke=3)
+		backpack_contents = list(/obj/item/rogue/bomb/smoke=3)
 
 /datum/outfit/job/roguetown/redsniper/pre_equip(mob/living/carbon/human/H, visualsOnly)
 	..()
@@ -727,7 +727,7 @@
 		backr = /obj/item/storage/backpack/rogue/bombdolier/ppr
 		shoes = /obj/item/clothing/shoes/roguetown/boots/war/stompers
 		backl = /obj/item/storage/backpack/rogue/satchel
-		backpack_contents = list(/obj/item/bomb=5,/obj/item/bomb/smoke=3)
+		backpack_contents = list(/obj/item/rogue/bomb=5,/obj/item/rogue/bomb/smoke=3)
 	else if(loadout == "arsonist")
 		pants = /obj/item/clothing/under/roguetown/trou/war/pantaloons/alternate
 		belt = /obj/item/storage/belt/rogue/leather/rope/war
@@ -736,7 +736,7 @@
 		beltr = /obj/item/rogueweapon/woodcut/war
 		backl = /obj/item/storage/backpack/rogue/bombdolier/ppr
 		shoes = /obj/item/clothing/shoes/roguetown/boots/war/stompers
-		backpack_contents = list(/obj/item/bomb/mollie=3,/obj/item/bomb/smoke=2)
+		backpack_contents = list(/obj/item/rogue/bomb/mollie=3,/obj/item/rogue/bomb/smoke=2)
 
 /datum/outfit/job/roguetown/redfirestarter/pre_equip(mob/living/carbon/human/H, visualsOnly)
 	..()
@@ -1050,7 +1050,7 @@
 		neck = /obj/item/rogue/barkenpowderflask
 		mask = /obj/item/clothing/mask/rogue/war/mask/regime
 		head = /obj/item/clothing/head/roguetown/war/regimepeaked
-		backpack_contents = list(/obj/item/bomb/poison=1,/obj/item/bomb/smoke=2)
+		backpack_contents = list(/obj/item/rogue/bomb/poison=1,/obj/item/rogue/bomb/smoke=2)
 	if(loadout == "fodder")
 		pants = /obj/item/clothing/under/roguetown/trou/war/regime/darkpantaloons
 		armor = /obj/item/clothing/suit/roguetown/armor/plate/half/iron/war/regime/alternate
@@ -1239,7 +1239,7 @@
 		backl = /obj/item/storage/backpack/rogue/satchel
 		neck = /obj/item/rogue/barkenpowderflask
 		head = /obj/item/clothing/head/roguetown/helmet/war/regime/tallhelm
-		backpack_contents = list(/obj/item/bomb/smoke=2,/obj/item/bomb=1)
+		backpack_contents = list(/obj/item/rogue/bomb/smoke=2,/obj/item/rogue/bomb=1)
 	else if(loadout == "acolyte")
 		pants = /obj/item/clothing/under/roguetown/trou/war/regime/darkpantaloons/alternate
 		shirt = /obj/item/clothing/suit/roguetown/shirt/war/regime/wornshirt/alternate
@@ -1251,7 +1251,7 @@
 		backl = /obj/item/storage/backpack/rogue/satchel
 		neck = /obj/item/rogue/barkenpowderflask
 		head = /obj/item/clothing/head/roguetown/helmet/war/regime/tallhelm/alternate
-		backpack_contents = list(/obj/item/bomb/smoke=3)
+		backpack_contents = list(/obj/item/rogue/bomb/smoke=3)
 
 /datum/outfit/job/roguetown/blusniper/pre_equip(mob/living/carbon/human/H, visualsOnly)
 	..()
@@ -1303,7 +1303,7 @@
 		backr = /obj/item/storage/backpack/rogue/bombdolier
 		backl = /obj/item/storage/backpack/rogue/satchel
 		head = /obj/item/clothing/head/roguetown/war/pickle
-		backpack_contents = list(/obj/item/bomb=5,/obj/item/bomb/smoke=3)
+		backpack_contents = list(/obj/item/rogue/bomb=5,/obj/item/rogue/bomb/smoke=3)
 	else if(loadout == "lightstarter")
 		pants = /obj/item/clothing/under/roguetown/trou/war/regime/darkpantaloons/alternate
 		shoes = /obj/item/clothing/shoes/roguetown/boots/war/trompers
@@ -1312,7 +1312,7 @@
 		beltr = /obj/item/flint
 		backl = /obj/item/storage/backpack/rogue/bombdolier
 		head = /obj/item/clothing/head/roguetown/war/pickle
-		backpack_contents = list(/obj/item/bomb/fire=3,/obj/item/bomb/smoke=2)
+		backpack_contents = list(/obj/item/rogue/bomb/fire=3,/obj/item/rogue/bomb/smoke=2)
 
 /datum/outfit/job/roguetown/blugrenadier/pre_equip(mob/living/carbon/human/H, visualsOnly)
 	..()
@@ -1526,14 +1526,14 @@
 	desc = "Spiky. IT COULD BE spiker. Maybe with bomb?"
 	icon = 'icons/roguetown/items/misc.dmi'
 	icon_state = "tetsubishi"
-	var/obj/item/bomb/loaded_bomb = null
+	var/obj/item/rogue/bomb/loaded_bomb = null
 	w_class = WEIGHT_CLASS_TINY
 	slot_flags = ITEM_SLOT_HIP
 	embedding = list("embedded_unsafe_removal_time" = 40, "embedded_pain_chance" = 40, "embedded_pain_multiplier" = 1, "embed_chance" = 100, "embedded_fall_chance" = 0)
 
 /obj/item/rogue/caltrop/attackby(obj/item/I, mob/user, params)
 	. = ..()
-	if(istype(I, /obj/item/bomb))
+	if(istype(I, /obj/item/rogue/bomb))
 		I.forceMove(src)
 		loaded_bomb = I
 		to_chat(user, "<span class='notice'>You attach \the [I] on \the [src].</span>")
@@ -1542,7 +1542,7 @@
 
 /obj/item/rogue/caltrop/bombed/Initialize()
 	. = ..()
-	var/obj/item/bomb/B = new(src)
+	var/obj/item/rogue/bomb/B = new(src)
 	loaded_bomb = B
 	icon_state = "mine"
 

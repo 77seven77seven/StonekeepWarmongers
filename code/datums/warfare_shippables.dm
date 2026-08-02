@@ -6,28 +6,28 @@
 
 /datum/warshippable/smokebombs
 	name = "FIVE SMOKE BOMBS"
-	items = list(/obj/item/bomb/smoke,
-			/obj/item/bomb/smoke,
-			/obj/item/bomb/smoke,
-			/obj/item/bomb/smoke,
-			/obj/item/bomb/smoke
+	items = list(/obj/item/rogue/bomb/smoke,
+			/obj/item/rogue/bomb/smoke,
+			/obj/item/rogue/bomb/smoke,
+			/obj/item/rogue/bomb/smoke,
+			/obj/item/rogue/bomb/smoke
 			)
 
 /datum/warshippable/gasbombs
 	name = "FOUR GAS BOMBS"
-	items = list(/obj/item/bomb/poison,
-			/obj/item/bomb/poison,
-			/obj/item/bomb/poison,
-			/obj/item/bomb/poison
+	items = list(/obj/item/rogue/bomb/poison,
+			/obj/item/rogue/bomb/poison,
+			/obj/item/rogue/bomb/poison,
+			/obj/item/rogue/bomb/poison
 			)
 
 /datum/warshippable/bombs
 	name = "FIVE BOMBS"
-	items = list(/obj/item/bomb,
-			/obj/item/bomb,
-			/obj/item/bomb,
-			/obj/item/bomb,
-			/obj/item/bomb
+	items = list(/obj/item/rogue/bomb,
+			/obj/item/rogue/bomb,
+			/obj/item/rogue/bomb,
+			/obj/item/rogue/bomb,
+			/obj/item/rogue/bomb
 			)
 
 /*
@@ -38,9 +38,9 @@
 
 /datum/warshippable/firebombs
 	name = "THREE FIRE BOMBS"
-	items = list(/obj/item/bomb/fire,
-			/obj/item/bomb/fire,
-			/obj/item/bomb/fire
+	items = list(/obj/item/rogue/bomb/fire,
+			/obj/item/rogue/bomb/fire,
+			/obj/item/rogue/bomb/fire
 			)
 
 /datum/warshippable/normalammo

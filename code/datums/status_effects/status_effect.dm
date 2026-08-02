@@ -96,6 +96,10 @@
 	desc = ""
 	var/datum/status_effect/attached_effect
 
+/atom/movable/screen/alert/status_effect/Click(location, control, params)
+	. = ..()
+	examine_ui(usr)
+
 /atom/movable/screen/alert/status_effect/examine_ui(mob/user)
 	var/list/inspec = list("----------------------")
 	inspec += "<br><span class='notice'><b>[name]</b></span>"

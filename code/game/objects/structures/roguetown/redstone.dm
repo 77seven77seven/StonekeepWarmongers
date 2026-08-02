@@ -256,8 +256,8 @@ GLOBAL_LIST_EMPTY(redstone_objs)
 /obj/structure/activator/redstone_triggered()
 	if(!containment)
 		return
-	if(istype(containment, /obj/item/bomb))
-		var/obj/item/bomb/bomba = containment
+	if(istype(containment, /obj/item/rogue/bomb))
+		var/obj/item/rogue/bomb/bomba = containment
 		bomba.light()
 	if(istype(containment, /obj/item/flint))
 		var/datum/effect_system/spark_spread/S = new()

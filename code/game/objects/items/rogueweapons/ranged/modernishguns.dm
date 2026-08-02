@@ -703,7 +703,7 @@
 		icon_state = "granata"
 
 /obj/item/gun/grenadelauncher/granata/attackby(obj/item/I, mob/user, params)
-	if((istype(I, /obj/item/bomb)))
+	if((istype(I, /obj/item/rogue/bomb)))
 		if(grenades.len < max_grenades)
 			if(!user.transferItemToLoc(I, src))
 				return
@@ -715,7 +715,7 @@
 /obj/item/gun/grenadelauncher/granata/process_fire(atom/target, mob/living/user, message = TRUE, params = null, zone_override = "", bonus_spread = 0)
 	user.visible_message("<span class='danger'>[user] launches a grenade!</span>", \
 						"<span class='danger'>I launch a grenade!</span>")
-	var/obj/item/bomb/F = grenades[1] //Now with less copypasta!
+	var/obj/item/rogue/bomb/F = grenades[1] //Now with less copypasta!
 	grenades -= F
 	F.forceMove(user.loc)
 	F.throw_at(target, 30, 4, user, spin = TRUE)
