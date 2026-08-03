@@ -74,6 +74,8 @@ h1.alert, h2.alert	{color: #c9c1ba;font-family: Pterra, TrueType;}
 .love					{color: #e7bed8;	font-size: 75%;}
 .info					{color: #a9a5b6;						font-size: 75%;}
 .tutorial				{color: #f1d669; font-size: 75%;}
+.chat_box {display: inline-block; width: calc(100% - 1em); margin: 0.5em; padding: 0.5em 0.75em; box-sizing: border-box;}
+.examine_block {background: #1a170f; border: 1px solid #2e2a1b;}
 .biginfo				{color: #a9a5b6;}
 .notice					{color: #f1d669;}
 .boldnotice				{color: #f1d669;	font-weight: bold;}

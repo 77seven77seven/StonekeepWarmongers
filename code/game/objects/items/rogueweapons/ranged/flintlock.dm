@@ -28,9 +28,13 @@
 
 	var/cocked = FALSE
 	var/rammed = FALSE
+
 	var/bayonetable = FALSE
 	var/has_bayonet = FALSE
+
+	var/needs_barkenpowder = TRUE
 	var/has_barkenpowder = FALSE
+
 	var/click_delay = 2
 	var/obj/item/rogue/ramrod/rod
 	var/ramtime = 5.5
@@ -100,6 +104,8 @@
 	. = ..()
 	. += "<span class='tutorial'>Use shift+middleclick to cock the weapon.</span>"
 	. += "<span class='tutorial'>Use middleclick to remove or put back the ramrod.</span>"
+	if(!needs_barkenpowder)
+		. += "<span class='tutorial'>It doesn't need barkenpowder.</span>"
 	if(has_bayonet)
 		. += "<span class='tutorial'>Use rightclick to remove the bayonet.</span>"
 
@@ -204,6 +210,9 @@
 		if(!user.is_holding(src))
 			to_chat(user, "<span class='warning'>I need to hold \the [src] to add barkenpowder!</span>")
 			return
+		if(!needs_barkenpowder)
+			to_chat(user, "<span class='warning'>This weapon doesn't need barkenpowder to operate!</span>")
+			return
 		if(!has_barkenpowder)
 			playsound(src.loc, 'sound/foley/powder.ogg', 100, FALSE, -3)
 			if(move_after(user, tt SECONDS, TRUE, src))
@@ -250,14 +259,14 @@
 		return
 
 	if(user.client)
-		if(!has_barkenpowder)
-			playsound(src.loc, 'sound/items/match_fail.ogg', 100, FALSE)
-			to_chat(user, "<span class='info'>I dry fire \the [src]!</span>")
-			cocked = FALSE
-			return
 		if(HAS_TRAIT(user, TRAIT_UNTRAINED))
 			to_chat(user, "<span class='info'>I don't know how this works.</span>")
 			playsound(src.loc, 'sound/items/match_fail.ogg', 100, FALSE)
+			return
+
+		if(!has_barkenpowder && needs_barkenpowder)
+			playsound(src.loc, 'sound/items/match_fail.ogg', 100, FALSE)
+			to_chat(user, "<span class='info'>I dry fire \the [src]!</span>")
 			cocked = FALSE
 			return
 
@@ -548,8 +557,10 @@
 	icon_state = "blunder"
 	mag_type = /obj/item/ammo_box/magazine/internal/shot/gun
 	bayonetable = FALSE
+	needs_barkenpowder = FALSE
 	force = 20
 	force_wielded = 35
+	click_delay = 0
 	gripped_intents = list(
 		/datum/intent/shoot/musket/shotgun,
 		/datum/intent/mace/heavy/smash
@@ -557,18 +568,17 @@
 
 /obj/item/gun/ballistic/revolver/grenadelauncher/flintlock/shotgun/examine(mob/user)
 	. = ..()
-	. += "<span class='tutorial'>SNEAK while using this weapon to make sure you don't get blown (to hell and) back.</span>"
+	. += "<span class='tutorial'>SNEAK while using this weapon to make sure you don't get blown to Hell and Back.</span>"
 
 /obj/item/gun/ballistic/revolver/grenadelauncher/flintlock/shotgun/shoot_live_shot(mob/living/user, pointblank, mob/pbtarget, message)
 	. = ..()
-	if(user.m_intent == MOVE_INTENT_SNEAK)
-		return
-	// Massive recoil hurls the shooter backwards.
-	var/turf/turfa = get_ranged_target_turf(user, turn(user.dir, 180), 40)
-	user.throw_at(turfa, 40, 1, null, TRUE)
-	user.take_overall_damage(65)
-	user.unlock_achievement(new /datum/achievement/backblast())
-	user.visible_message("<span class='danger'>\The [user] is thrown back from \the [src]'s recoil!</span>")
+	if(user.m_intent != MOVE_INTENT_SNEAK)
+		// Massive recoil hurls the shooter backwards.
+		var/turf/turfa = get_ranged_target_turf(user, turn(user.dir, 180), 40)
+		user.throw_at(turfa, 40, 1, null, TRUE)
+		user.take_overall_damage(65)
+		user.unlock_achievement(new /datum/achievement/backblast())
+		user.visible_message("<span class='danger'>\The [user] is thrown back from \the [src]'s recoil!</span>")
 
 // Shotgun alt
 
@@ -625,3 +635,59 @@
 	icon_state = "powderflask"
 	w_class = WEIGHT_CLASS_SMALL
 	slot_flags = ITEM_SLOT_NECK
+
+// INTENTS
+
+/datum/intent/shoot/musket
+	chargedrain = 0 //no drain to aim a gun
+	charging_slowdown = 4
+	warnoffset = 20
+	chargetime = 4
+
+/datum/intent/shoot/musket/arc
+	name = "arc"
+	icon_state = "inarc"
+	chargedrain = 1
+	charging_slowdown = 3
+	warnoffset = 20
+
+/datum/intent/shoot/musket/arc/arc_check()
+	return TRUE
+
+/datum/intent/shoot/musket/get_chargetime()
+	if(mastermob && chargetime)
+		var/newtime = chargetime
+		//skill block
+		newtime = newtime + 18
+		newtime = newtime - (mastermob.mind.get_skill_level(/datum/skill/combat/flintlocks) * 4)
+		//per block
+		newtime = newtime + 20
+		// Perception aint gonna help you with loading a musket, bud
+		//newtime = newtime - (mastermob.STAPER)
+		if(newtime > 0)
+			return newtime
+		else
+			return 1
+	return chargetime
+
+/datum/intent/shoot/musket/shotgun
+	chargedrain = 3 // heavy piece of shit
+	charging_slowdown = 1
+	chargetime = 2 // :)
+	severity = "mobwarning_hi"
+
+/datum/intent/shoot/musket/pistol
+	chargedrain = 1 // ???
+	severity = "mobwarning_lo"
+
+/datum/intent/shoot/musket/rifle
+	chargedrain = 0 //no drain to aim a gun
+	charging_slowdown = 9
+	warnoffset = 20
+	chargetime = 2
+
+/datum/intent/shoot/musket/peter
+	chargedrain = 0 //no drain to aim a gun
+	charging_slowdown = 4
+	warnoffset = 20
+	chargetime = 2

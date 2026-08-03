@@ -58,6 +58,7 @@
 	if(chambered)
 		. += "<span class='info'>It is loaded.</span>"
 	. += "<span class='tutorial'>Use rightclick to cycle the chamber.</span>"
+	. += "<span class='tutorial'>It doesn't need barkenpowder.</span>"
 
 /obj/item/gun/ballistic/revolver/grenadelauncher/repeater/chamber_round(spin_cylinder)
 	return
@@ -208,6 +209,7 @@
 	if(chambered)
 		. += "<span class='info'>It is loaded.</span>"
 	. += "<span class='tutorial'>Use rightclick rack the bolt.</span>"
+	. += "<span class='tutorial'>It doesn't need barkenpowder.</span>"
 
 /obj/item/gun/ballistic/revolver/grenadelauncher/boltaction/chamber_round(spin_cylinder)
 	return
@@ -356,6 +358,7 @@
 	if(chambered)
 		. += "<span class='info'>It is loaded.</span>"
 	. += "<span class='tutorial'>Use rightclick to pull the clicker down.</span>"
+	. += "<span class='tutorial'>It doesn't need barkenpowder.</span>"
 
 /obj/item/gun/ballistic/revolver/grenadelauncher/revolvashot/attack_self(mob/living/user)
 	return
@@ -482,6 +485,7 @@
 	if(chambered)
 		. += "<span class='info'>It is loaded.</span>"
 	. += "<span class='tutorial'>Use rightclick to rack the bolt.</span>"
+	. += "<span class='tutorial'>It doesn't need barkenpowder.</span>"
 
 /obj/item/gun/ballistic/revolver/grenadelauncher/boltashot/attack_self(mob/living/user)
 	return
@@ -665,8 +669,8 @@
 			M.playsound_local(M_turf, null, 60, 1, get_rand_frequency(), falloff = 5, S = far_smith_sound)
 
 /obj/item/gun/grenadelauncher/granata
-	name = "barklauncher"
-	desc = "To fire and back. Load with grenades."
+	name = "granatalauncher"
+	desc = "To Hell and Back. Load with grenades."
 	icon = 'icons/roguetown/weapons/64.dmi'
 	icon_state = "granata"
 	bigboy = TRUE
@@ -692,6 +696,7 @@
 
 /obj/item/gun/grenadelauncher/granata/examine(mob/user)
 	. = ..()
+	. += "<span class='tutorial'>It doesn't need barkenpowder.</span>"
 	if(grenades.len)
 		. = "It is loaded."
 	. += "<span class='tutorial'>It can hold three grenades, note the indicators on the weapon to see how many grenades are left.</span>"

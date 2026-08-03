@@ -47,61 +47,6 @@
 			return 0.1
 	return chargetime
 
-/datum/intent/shoot/musket
-	chargedrain = 0 //no drain to aim a gun
-	charging_slowdown = 4
-	warnoffset = 20
-	chargetime = 4
-
-/datum/intent/shoot/musket/shotgun
-	chargedrain = 3 // heavy piece of shit
-	charging_slowdown = 1
-	chargetime = 2 // :)
-	severity = "mobwarning_hi"
-
-/datum/intent/shoot/musket/pistol
-	chargedrain = 1 // ???
-	charging_slowdown = 2 // dodge more easily
-	severity = "mobwarning_lo"
-
-/datum/intent/shoot/musket/rifle
-	chargedrain = 0 //no drain to aim a gun
-	charging_slowdown = 9
-	warnoffset = 20
-	chargetime = 2
-
-/datum/intent/shoot/musket/peter
-	chargedrain = 0 //no drain to aim a gun
-	charging_slowdown = 4
-	warnoffset = 20
-	chargetime = 2
-
-/datum/intent/shoot/musket/arc
-	name = "arc"
-	icon_state = "inarc"
-	chargedrain = 1
-	charging_slowdown = 3
-	warnoffset = 20
-
-/datum/intent/shoot/musket/arc/arc_check()
-	return TRUE
-
-/datum/intent/shoot/musket/get_chargetime()
-	if(mastermob && chargetime)
-		var/newtime = chargetime
-		//skill block
-		newtime = newtime + 18
-		newtime = newtime - (mastermob.mind.get_skill_level(/datum/skill/combat/flintlocks) * 4)
-		//per block
-		newtime = newtime + 20
-		// Perception aint gonna help you with loading a musket, bud
-		//newtime = newtime - (mastermob.STAPER)
-		if(newtime > 0)
-			return newtime
-		else
-			return 0
-	return chargetime
-
 /datum/intent/arc/crossbow
 	chargetime = 1
 	chargedrain = 0 //no drain to aim a crossbow

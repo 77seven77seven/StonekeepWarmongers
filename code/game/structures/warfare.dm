@@ -326,9 +326,11 @@
 	var/datum/warshippable/shoppin = shippables[choice]
 	if(!shoppin)
 		return
+	/*
 	if(!do_after(user, 5 SECONDS, TRUE, loc))
 		playsound(loc, 'sound/misc/machineno.ogg', 100, FALSE, -1)
 		return
+	*/
 
 	switch(faction)
 		if(RED_WARTEAM)
@@ -337,7 +339,7 @@
 				playsound(loc, 'sound/misc/machinevomit.ogg', 100, FALSE, -1)
 			else
 				playsound(loc, 'sound/misc/machineno.ogg', 100, FALSE, -1)
-				say("INSUFFICIENT POINTS!!!")
+				say("INSUFFICIENT FUNDS!!!")
 				return
 		if(BLUE_WARTEAM)
 			if(C.blu_bonus >= 1)
@@ -345,7 +347,7 @@
 				playsound(loc, 'sound/misc/machinevomit.ogg', 100, FALSE, -1)
 			else
 				playsound(loc, 'sound/misc/machineno.ogg', 100, FALSE, -1)
-				say("INSUFFICIENT POINTS!!!")
+				say("INSUFFICIENT FUNDS!!!")
 				return
 	playsound(loc, 'sound/misc/beep.ogg', 100, FALSE, -1)
 
@@ -355,7 +357,7 @@
 		var/fuck = new i(get_turf(src))
 		if(istype(fuck, /obj))
 			var/obj/O = fuck
-			O.pixel_y = 200
+			O.pixel_y = 640
 			animate(O, 1 SECONDS, easing = BOUNCE_EASING, pixel_y = 0)
 			spawn(0.35 SECONDS)
 				playsound(loc, 'sound/misc/fall.ogg', 100, FALSE, -1)

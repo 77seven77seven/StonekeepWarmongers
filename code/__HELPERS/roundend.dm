@@ -180,6 +180,7 @@
 	if(ishuman(src))
 		var/mob/living/carbon/human/H = src
 		H.mode = AI_OFF
+	// ghostize(FALSE) not sure if we need this
 	/*
 	if(client)
 		client.verbs += /client/proc/lobbyooc
@@ -222,8 +223,10 @@
 				spawn(10) C.mob.playsound_local(C.mob, 'sound/vo/halo/blowmeaway.mp3', 100, FALSE)
 			else
 				C.mob.playsound_local(C.mob, 'sound/music/whocareswhowon.ogg', 100, FALSE)
-		if(isliving(C.mob) && C.ckey)
-			key_list += C.ckey
+			if(isliving(C.mob) && C.ckey)
+				key_list += C.ckey
+
+	CHECK_TICK
 
 	add_roundplayed(key_list)
 

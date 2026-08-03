@@ -43,6 +43,10 @@
 			/obj/item/rogue/bomb/fire
 			)
 
+/datum/warshippable/granatalauncher
+	name = "GRANATALAUNCHER"
+	items = list(/obj/item/gun/grenadelauncher/granata)
+
 /datum/warshippable/normalammo
 	name = "LEAD BALL POUCHES"
 	items = list(/obj/item/quiver/bullets,
