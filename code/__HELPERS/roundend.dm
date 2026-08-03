@@ -209,9 +209,11 @@
 		C.award_triumphs()
 
 	var/list/key_list = list()
+
 	for(var/client/C in GLOB.clients)
 		if(C.mob)
 			SSdroning.kill_droning(C)
+			C.stop_sounds_rogue()
 			SSvote.interface(C) // FORCE them to vote.
 			spawn()
 				C.commendation_popup()
@@ -219,14 +221,11 @@
 				C.mob.playsound_local(C.mob, 'sound/vo/halo/gameover.mp3', 100, FALSE)
 				spawn(10) C.mob.playsound_local(C.mob, 'sound/vo/halo/blowmeaway.mp3', 100, FALSE)
 			else
-				C.mob.playsound_local(C.mob, 'sound/blank.ogg', 100, FALSE)
+				C.mob.playsound_local(C.mob, 'sound/music/whocareswhowon.ogg', 100, FALSE)
 		if(isliving(C.mob) && C.ckey)
 			key_list += C.ckey
-//	if(key_list.len)
-//		add_roundplayed(key_list)
+
 	add_roundplayed(key_list)
-//	SEND_SOUND(world, sound(pick('sound/misc/roundend1.ogg','sound/misc/roundend2.ogg')))
-//	SEND_SOUND(world, sound('sound/misc/roundend.ogg'))
 
 	for(var/mob/M in GLOB.mob_list)
 		M.do_game_over()
@@ -242,37 +241,13 @@
 
 	gamemode_report()
 
+	CHECK_TICK
+
 	sleep(10 SECONDS)
 
 	players_report()
 
 	stats_report()
-
-//	for(var/client/C in GLOB.clients)
-//		if(!C.credits)
-//			C.RollCredits()
-//		C.playtitlemusic(40)
-
-//	var/popcount = gather_roundend_feedback()
-//	display_report(popcount)
-
-	CHECK_TICK
-
-//	// Add AntagHUD to everyone, see who was really evil the whole time!
-//	for(var/datum/atom_hud/antag/H in GLOB.huds)
-//		for(var/m in GLOB.player_list)
-//			var/mob/M = m
-//			H.add_hud_to(M)
-
-	CHECK_TICK
-
-	//Set news report and mode result
-//	mode.set_round_result()
-
-//	send2irc("Server", "Round just ended.")
-
-//	if(length(CONFIG_GET(keyed_list/cross_server)))
-//		send_news_report()
 
 	CHECK_TICK
 

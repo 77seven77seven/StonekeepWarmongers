@@ -947,6 +947,7 @@
 	beltl = /obj/item/rogueweapon/sword/sabre/dec/alt
 	beltr = /obj/item/quiver/bullets/regime
 	neck = /obj/item/clothing/neck/roguetown/gorget/flasked
+	gloves = /obj/item/clothing/gloves/roguetown/angle
 	backr = GetSidearmForWarfareRegime()
 	armor = /obj/item/clothing/suit/roguetown/armor/plate/half/iron/war/regime
 	cloak = /obj/item/clothing/cloak/war/regime/cloak
