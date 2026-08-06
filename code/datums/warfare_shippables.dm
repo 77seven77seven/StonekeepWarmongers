@@ -196,3 +196,13 @@
 				/obj/item/natural/cloth,
 				/obj/item/natural/cloth,
 				/obj/item/natural/cloth)
+
+/datum/warshippable/blacksmith
+	name = "D.I.E. HOME SMITHY KIT"
+	items = list(/obj/structure/closet/crate/chest/diysmithy)
+
+/obj/structure/closet/crate/chest/diysmithy/PopulateContents()
+	new /obj/item/rogueweapon/tongs(src)
+	new /obj/item/rogueweapon/hammer(src)
+	new /obj/item/roguebin/water/gross(src)
+	new /obj/machinery/anvil(src)

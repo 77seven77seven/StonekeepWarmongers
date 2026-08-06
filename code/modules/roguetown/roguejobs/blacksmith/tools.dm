@@ -102,14 +102,14 @@
 
 
 /obj/item/rogueweapon/tongs
-	force = 5
-	possible_item_intents = list(/datum/intent/mace/strike)
 	name = "tongs"
-	desc = ""
+	desc = "To hold the steel... or the iron! Or... whatever, really. It seems to have an anomalous property where it is bigger when on the ground. Handy!"
 	icon_state = "tongswar"
 	icon = 'icons/roguetown/weapons/tools.dmi'
+	force = 5
+	possible_item_intents = list(/datum/intent/mace/strike)
 	sharpness = IS_BLUNT
-	//dropshrink = 0.8
+	dropshrink = -1.25
 	wlength = 10
 	slot_flags = ITEM_SLOT_HIP
 	associated_skill = null

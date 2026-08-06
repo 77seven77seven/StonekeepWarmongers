@@ -7,6 +7,7 @@
 	var/obj/item/ingot/hingot
 	max_integrity = 2000
 	density = TRUE
+	anchored = FALSE
 	damage_deflection = 25
 	climbable = TRUE
 

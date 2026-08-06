@@ -370,9 +370,8 @@
 	reinforcements_wave = 0
 	allowed_races = ALL_RACES_LIST_NAMES
 	loadout_options = list("Musketman", "Flanker", "Irregular")
-	loadout_prompt = "Choose your muckraker loadout"
 
-/datum/outfit/job/roguetown/redsoldier/proc/assign_red_musketeer_loadout()
+/datum/outfit/job/roguetown/redsoldier/proc/assign_loadout()
 	var/loadout = loadout_choice
 	if(!loadout)
 		loadout = pick("Musketman", "flanker", "irregular")
@@ -418,7 +417,7 @@
 
 /datum/outfit/job/roguetown/redsoldier/pre_equip(mob/living/carbon/human/H, visualsOnly)
 	..()
-	assign_red_musketeer_loadout()
+	assign_loadout()
 	if(H.mind)
 		H.mind.adjust_skillrank(/datum/skill/combat/swords, 2, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/combat/flintlocks, 3, TRUE)
@@ -439,7 +438,7 @@
 //// BPLUNDERER - SHOTGUNNER////
 
 /datum/advclass/red/shotgunner
-	name = "Red Vanguard"
+	name = "Crimson Vanguard"
 	tutorial = "These units excel at close range assaults at the cost of having no armor to speak of."
 	outfit = /datum/outfit/job/roguetown/redshotgunner
 	allowed_sexes = list(MALE, FEMALE)
@@ -450,9 +449,8 @@
 	reinforcements_wave = 2
 	allowed_races = ALL_RACES_LIST_NAMES
 	loadout_options = list("Blunderer", "Slinger")
-	loadout_prompt = "Choose your red vanguard loadout"
 
-/datum/outfit/job/roguetown/redshotgunner/proc/assign_red_shotgunner_loadout()
+/datum/outfit/job/roguetown/redshotgunner/proc/assign_loadout()
 	var/loadout = loadout_choice
 	if(!loadout)
 		loadout = pick("blunderer", "slinger")
@@ -478,7 +476,7 @@
 
 /datum/outfit/job/roguetown/redshotgunner/pre_equip(mob/living/carbon/human/H, visualsOnly)
 	..()
-	assign_red_shotgunner_loadout()
+	assign_loadout()
 	if(H.mind)
 		H.mind.adjust_skillrank(/datum/skill/combat/flintlocks, 4, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/combat/unarmed, 2, TRUE)
@@ -509,9 +507,8 @@
 	reinforcements_wave = 3
 	allowed_races = ALL_RACES_LIST_NAMES
 	loadout_options = list("Kossak", "Katafract", "Uhlan")
-	loadout_prompt = "Choose your outrider loadout"
 
-/datum/outfit/job/roguetown/redoutrider/proc/assign_red_outrider_loadout()
+/datum/outfit/job/roguetown/redoutrider/proc/assign_loadout()
 	var/loadout = loadout_choice
 	if(!loadout)
 		loadout = pick("kossak", "katafract", "uhlan")
@@ -549,7 +546,7 @@
 
 /datum/outfit/job/roguetown/redoutrider/pre_equip(mob/living/carbon/human/H, visualsOnly)
 	..()
-	assign_red_outrider_loadout()
+	assign_loadout()
 	if(H.mind)
 		H.mind.adjust_skillrank(/datum/skill/combat/flintlocks, 1, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/combat/polearms, 3, TRUE)
@@ -583,9 +580,8 @@
 	reinforcements_wave = 0
 	allowed_races = ALL_RACES_LIST_NAMES
 	loadout_options = list("Sniper", "Scout")
-	loadout_prompt = "Choose your nimrod loadout"
 
-/datum/outfit/job/roguetown/redsniper/proc/assign_red_sniper_loadout()
+/datum/outfit/job/roguetown/redsniper/proc/assign_loadout()
 	var/loadout = loadout_choice
 	if(!loadout)
 		loadout = pick("sniper", "scout")
@@ -617,7 +613,7 @@
 
 /datum/outfit/job/roguetown/redsniper/pre_equip(mob/living/carbon/human/H, visualsOnly)
 	..()
-	assign_red_sniper_loadout()
+	assign_loadout()
 	if(H.mind)
 		H.mind.adjust_skillrank(/datum/skill/combat/swords, 1, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/combat/flintlocks, 5, TRUE)
@@ -651,9 +647,8 @@
 	min_pq = -5
 	allowed_races = ALL_RACES_LIST_NAMES
 	loadout_options = list("Smallholder", "Freeholder")
-	loadout_prompt = "Choose your landlord loadout"
 
-/datum/outfit/job/roguetown/redofficer/proc/assign_red_officer_loadout()
+/datum/outfit/job/roguetown/redofficer/proc/assign_loadout()
 	var/loadout = loadout_choice
 	if(!loadout)
 		loadout = pick("smallholder", "freeholder")
@@ -681,7 +676,7 @@
 
 /datum/outfit/job/roguetown/redofficer/pre_equip(mob/living/carbon/human/H, visualsOnly)
 	..()
-	assign_red_officer_loadout()
+	assign_loadout()
 	if(H.mind)
 		H.mind.adjust_skillrank(/datum/skill/combat/swords, 2, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/combat/flintlocks, 2, TRUE)
@@ -706,13 +701,12 @@
 	allowed_races = ALL_RACES_LIST_NAMES
 	allowed_ages = list(AGE_ADULT, AGE_MIDDLEAGED, AGE_OLD)
 	category_tags = list(CTAG_REDSOLDIER)
-	maximum_possible_slots = -1
+	maximum_possible_slots = 10 // You've ran out of fun points.
 	reinforcements_wave = 2
 	allowed_races = ALL_RACES_LIST_NAMES
 	loadout_options = list("Chucker", "Arsonist")
-	loadout_prompt = "Choose your bomb tosser loadout"
 
-/datum/outfit/job/roguetown/redfirestarter/proc/assign_red_firestarter_loadout()
+/datum/outfit/job/roguetown/redfirestarter/proc/assign_loadout()
 	var/loadout = loadout_choice
 	if(!loadout)
 		loadout = pick("chucker", "arsonist")
@@ -740,7 +734,7 @@
 
 /datum/outfit/job/roguetown/redfirestarter/pre_equip(mob/living/carbon/human/H, visualsOnly)
 	..()
-	assign_red_firestarter_loadout()
+	assign_loadout()
 	if(H.mind)
 		H.mind.adjust_skillrank(/datum/skill/combat/whipsflails, 3, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/combat/axesmaces, 2, TRUE)
@@ -762,10 +756,10 @@
 
 //// MEDIC ////
 
-/datum/advclass/red/medic
-	name = "Corpseman"
-	tutorial = "Dedicated to keeping their fellows alive, dubious credentials be damned."
-	outfit = /datum/outfit/job/roguetown/redmedic
+/datum/advclass/red/support
+	name = "NR. Merkcenaries"
+	tutorial = "Merkcenaries provided by the Nimrods. Whether it be healing people (dubious credentials be damned), or making walls, they'll help with winning this battle."
+	outfit = /datum/outfit/job/roguetown/redsupport
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = ALL_RACES_LIST_NAMES
 	allowed_ages = list(AGE_ADULT, AGE_MIDDLEAGED, AGE_OLD)
@@ -774,11 +768,7 @@
 	reinforcements_wave = 0
 	allowed_races = ALL_RACES_LIST_NAMES
 
-/datum/outfit/job/roguetown/redmedic
-	name = "Corpseman"
-	jobtype = /datum/outfit/job/roguetown/redmedic
-
-/datum/outfit/job/roguetown/redmedic/pre_equip(mob/living/carbon/human/H, visualsOnly)
+/datum/outfit/job/roguetown/redsupport/pre_equip(mob/living/carbon/human/H, visualsOnly)
 	..()
 
 	pants = /obj/item/clothing/under/roguetown/trou/war/pantaloons
@@ -835,9 +825,8 @@
 	reinforcements_wave = 0
 	allowed_races = ALL_RACES_LIST_NAMES
 	loadout_options = list("Light Shocktrooper", "Medium Shocktrooper", "Heavy Shocktrooper")
-	loadout_prompt = "Choose your shocktrooper loadout"
 
-/datum/outfit/job/roguetown/redskirmisher/proc/assign_red_skirmisher_loadout()
+/datum/outfit/job/roguetown/redskirmisher/proc/assign_loadout()
 	var/loadout = loadout_choice
 	if(!loadout)
 		loadout = pick("light shocktrooper", "medium shocktrooper", "heavy shocktrooper")
@@ -868,7 +857,7 @@
 		backr = /obj/item/rogueweapon/sword/long/reskin/ppu
 
 /datum/outfit/job/roguetown/redskirmisher/pre_equip(mob/living/carbon/human/H, visualsOnly)
-	assign_red_skirmisher_loadout()
+	assign_loadout()
 	if(H.mind)
 		H.mind.adjust_skillrank(/datum/skill/misc/swimming, 3, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/misc/climbing, 3, TRUE)
@@ -1022,9 +1011,8 @@
 	reinforcements_wave = 0
 	allowed_races = ALL_RACES_LIST_NAMES
 	loadout_options = list("Adherent", "Cultist", "Fodder")
-	loadout_prompt = "Choose your sycophant loadout"
 
-/datum/outfit/job/roguetown/blusoldier/proc/assign_blue_musketeer_loadout()
+/datum/outfit/job/roguetown/blusoldier/proc/assign_loadout()
 	var/loadout = loadout_choice
 	if(!loadout)
 		loadout = pick("adherent", "cultist", "fodder")
@@ -1067,7 +1055,7 @@
 
 /datum/outfit/job/roguetown/blusoldier/pre_equip(mob/living/carbon/human/H, visualsOnly)
 	..()
-	assign_blue_musketeer_loadout()
+	assign_loadout()
 	if(H.mind)
 		H.mind.adjust_skillrank(/datum/skill/combat/swords, 2, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/combat/flintlocks, 3, TRUE)
@@ -1098,9 +1086,8 @@
 	reinforcements_wave = 2
 	allowed_races = ALL_RACES_LIST_NAMES
 	loadout_options = list("Zealot", "Judge")
-	loadout_prompt = "Choose your militant loadout"
 
-/datum/outfit/job/roguetown/bluzealot/proc/assign_blue_zealot_loadout()
+/datum/outfit/job/roguetown/bluzealot/proc/assign_loadout()
 	var/loadout = loadout_choice
 	if(!loadout)
 		loadout = pick("zealot", "judge")
@@ -1125,7 +1112,7 @@
 
 /datum/outfit/job/roguetown/bluzealot/pre_equip(mob/living/carbon/human/H, visualsOnly)
 	..()
-	assign_blue_zealot_loadout()
+	assign_loadout()
 	if(H.mind)
 		H.mind.adjust_skillrank(/datum/skill/combat/flintlocks, 4, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/combat/unarmed, 2, TRUE)
@@ -1156,9 +1143,8 @@
 	reinforcements_wave = 3
 	allowed_races = ALL_RACES_LIST_NAMES
 	loadout_options = list("Hussar", "Cuirassier", "Lancer")
-	loadout_prompt = "Choose your cavalier loadout"
 
-/datum/outfit/job/roguetown/bluhussar/proc/assign_blue_hussar_loadout()
+/datum/outfit/job/roguetown/bluhussar/proc/assign_loadout()
 	var/loadout = loadout_choice
 	if(!loadout)
 		loadout = pick("hussar", "cuirassier", "lancer")
@@ -1193,7 +1179,7 @@
 
 /datum/outfit/job/roguetown/bluhussar/pre_equip(mob/living/carbon/human/H, visualsOnly)
 	..()
-	assign_blue_hussar_loadout()
+	assign_loadout()
 	if(H.mind)
 		H.mind.adjust_skillrank(/datum/skill/combat/flintlocks, 1, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/combat/polearms, 3, TRUE)
@@ -1225,9 +1211,8 @@
 	reinforcements_wave = 0
 	allowed_races = ALL_RACES_LIST_NAMES
 	loadout_options = list("Chosen", "Acolyte")
-	loadout_prompt = "Choose your crackshot loadout"
 
-/datum/outfit/job/roguetown/blusniper/proc/assign_blue_sniper_loadout()
+/datum/outfit/job/roguetown/blusniper/proc/assign_loadout()
 	var/loadout = loadout_choice
 	if(loadout == "chosen")
 		pants = /obj/item/clothing/under/roguetown/trou/war/regime/darkpantaloons/alternate
@@ -1257,7 +1242,7 @@
 
 /datum/outfit/job/roguetown/blusniper/pre_equip(mob/living/carbon/human/H, visualsOnly)
 	..()
-	assign_blue_sniper_loadout()
+	assign_loadout()
 	if(H.mind)
 		H.mind.adjust_skillrank(/datum/skill/combat/swords, 1, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/combat/flintlocks, 5, TRUE)
@@ -1286,13 +1271,12 @@
 	allowed_races = ALL_RACES_LIST_NAMES
 	allowed_ages = list(AGE_ADULT, AGE_MIDDLEAGED, AGE_OLD)
 	category_tags = list(CTAG_BLUSOLDIER)
-	maximum_possible_slots = -1
+	maximum_possible_slots = 10 // You've ran out of fun points.
 	reinforcements_wave = 2
 	allowed_races = ALL_RACES_LIST_NAMES
 	loadout_options = list("Bombardist", "Lightstarter")
-	loadout_prompt = "Choose your fundamentalist loadout"
 
-/datum/outfit/job/roguetown/blugrenadier/proc/assign_blue_grenadier_loadout()
+/datum/outfit/job/roguetown/blugrenadier/proc/assign_loadout()
 	var/loadout = loadout_choice
 	if(loadout == "bombardist")
 		pants = /obj/item/clothing/under/roguetown/trou/war/regime/darkpantaloons/alternate
@@ -1318,7 +1302,7 @@
 
 /datum/outfit/job/roguetown/blugrenadier/pre_equip(mob/living/carbon/human/H, visualsOnly)
 	..()
-	assign_blue_grenadier_loadout()
+	assign_loadout()
 	if(H.mind)
 		H.mind.adjust_skillrank(/datum/skill/combat/whipsflails, 3, TRUE) //it's j-man cause flails can't parry LOL
 		H.mind.adjust_skillrank(/datum/skill/combat/wrestling, 3, TRUE)
@@ -1352,9 +1336,8 @@
 	min_pq = -5
 	allowed_races = ALL_RACES_LIST_NAMES
 	loadout_options = list("Deacon", "Bishop")
-	loadout_prompt = "Choose your demagogue loadout"
 
-/datum/outfit/job/roguetown/bluofficer/proc/assign_blue_officer_loadout()
+/datum/outfit/job/roguetown/bluofficer/proc/assign_loadout()
 	var/loadout = loadout_choice
 	if(!loadout)
 		loadout = pick("deacon", "bishop")
@@ -1381,7 +1364,7 @@
 		mask = /obj/item/clothing/mask/rogue/war/regimoffmask
 
 /datum/outfit/job/roguetown/bluofficer/pre_equip(mob/living/carbon/human/H, visualsOnly)
-	assign_blue_officer_loadout()
+	assign_loadout()
 	if(H.mind)
 		H.mind.adjust_skillrank(/datum/skill/combat/swords, 2, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/combat/flintlocks, 2, TRUE)
@@ -1398,10 +1381,10 @@
 
 //// MEDIC ////
 
-/datum/advclass/blu/medic
-	name = "Harmacist"
-	tutorial = "The Harmacist is there to keep his fellows alive. For the most part."
-	outfit = /datum/outfit/job/roguetown/blumedic
+/datum/advclass/blu/support
+	name = "Sapportine Corps"
+	tutorial = "A member of the Sapportine Corps does anything to support his comrades, whether it be making walls or chemical cocktails and sewing up wounds."
+	outfit = /datum/outfit/job/roguetown/blusupport
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = ALL_RACES_LIST_NAMES
 	allowed_ages = list(AGE_ADULT, AGE_MIDDLEAGED, AGE_OLD)
@@ -1409,53 +1392,85 @@
 	maximum_possible_slots = -1
 	reinforcements_wave = 0
 	allowed_races = ALL_RACES_LIST_NAMES
+	loadout_options = list("Medic", "Sapper")
 
-/datum/outfit/job/roguetown/blumedic
-	name = "Harmacist"
-	jobtype = /datum/outfit/job/roguetown/blumedic
+/datum/outfit/job/roguetown/blusupport/proc/assign_loadout()
+	var/loadout = loadout_choice
+	if(!loadout)
+		loadout = pick("medic", "sapper")
+	if(loadout == "medic")
+		pants = /obj/item/clothing/under/roguetown/trou/war/regime/darkpantaloons
+		shirt = /obj/item/clothing/suit/roguetown/shirt/war/regime/wornshirt
+		shoes = /obj/item/clothing/shoes/roguetown/boots/war/trompers
+		belt = /obj/item/storage/belt/rogue/leather/rope/war
+		backl = /obj/item/storage/backpack/rogue/satchel/surgbag
+		neck = /obj/item/needle/blessed
+		beltl = /obj/item/rogue/cranker
+		beltr = /obj/item/rogueweapon/surgery/limbgrabber
+		cloak = /obj/item/clothing/cloak/war/apron/cook/medical
+		mask = /obj/item/clothing/mask/rogue/war/mask/medical
+		backpack_contents = list(/obj/item/reagent_containers/glass/bottle/rogue/healthpot = 1)
+	else if(loadout == "sapper")
+		pants = /obj/item/clothing/under/roguetown/trou/war/regime/darkpantaloons
+		armor = /obj/item/clothing/suit/roguetown/armor/plate/half/iron/war/regime/alternate
+		shirt = /obj/item/clothing/suit/roguetown/shirt/war/regime/wornshirt
+		shoes = /obj/item/clothing/shoes/roguetown/boots/war/trompers
+		gloves = /obj/item/clothing/gloves/roguetown/fingerless
+		belt = /obj/item/storage/belt/rogue/leather/rope/war
+		beltl = /obj/item/rogueweapon/woodcut/war/regime
+		backl = /obj/item/storage/backpack/rogue/backpack/war/regime
+		cloak = /obj/item/clothing/cloak/war/regime/scarf
+		mask = /obj/item/clothing/mask/rogue/platemask
+		mouth = /obj/item/clothing/mask/cigarette/rollie
+		backpack_contents = list(/obj/item/rogueweapon/hammer/claw = 1, /obj/item/rogueweapon/huntingknife = 1)
 
-/datum/outfit/job/roguetown/blumedic/pre_equip(mob/living/carbon/human/H, visualsOnly)
+/datum/outfit/job/roguetown/blusupport/pre_equip(mob/living/carbon/human/H, visualsOnly)
 	..()
-
-	pants = /obj/item/clothing/under/roguetown/trou/war/regime/darkpantaloons
-	shirt = /obj/item/clothing/suit/roguetown/shirt/war/regime/wornshirt
-	shoes = /obj/item/clothing/shoes/roguetown/boots/war/trompers
-	belt = /obj/item/storage/belt/rogue/leather/rope/war
-	backl = /obj/item/storage/backpack/rogue/satchel/surgbag
-	neck = /obj/item/needle/blessed
-	beltl = /obj/item/rogue/cranker
-	beltr = /obj/item/rogueweapon/surgery/limbgrabber
-	cloak = /obj/item/clothing/cloak/war/apron/cook/medical
-	mask = /obj/item/clothing/mask/rogue/war/mask/medical
-	backpack_contents = list(/obj/item/reagent_containers/glass/bottle/rogue/healthpot = 1)
-	if(H.mind)
-		H.mind.adjust_skillrank(/datum/skill/misc/swimming, 3, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/misc/climbing, 3, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/misc/athletics, 5, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/misc/riding, 2, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/misc/medicine, 6, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/misc/sewing, 6, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/craft/crafting, 3, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/craft/carpentry, 3, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/combat/swords, 2, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/combat/crossbows, 4, TRUE)
-		H.change_stat("speed", 4)
-		H.change_stat("intelligence", 3)
-		if(aspect_chosen(/datum/round_aspect/suprememedics))
-			H.change_stat("strength", 5)
+	assign_loadout()
+	if(loadout_choice == "medic")
+		if(H.mind)
+			H.mind.adjust_skillrank(/datum/skill/misc/swimming, 3, TRUE)
+			H.mind.adjust_skillrank(/datum/skill/misc/climbing, 3, TRUE)
+			H.mind.adjust_skillrank(/datum/skill/misc/athletics, 5, TRUE)
+			H.mind.adjust_skillrank(/datum/skill/misc/riding, 2, TRUE)
+			H.mind.adjust_skillrank(/datum/skill/misc/medicine, 6, TRUE)
+			H.mind.adjust_skillrank(/datum/skill/misc/sewing, 6, TRUE)
+			H.mind.adjust_skillrank(/datum/skill/craft/crafting, 3, TRUE)
+			H.mind.adjust_skillrank(/datum/skill/craft/carpentry, 3, TRUE)
 			H.mind.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
-			H.cmode_music = 'sound/music/medic.ogg'
-		else
-			H.change_stat("strength", -2)
-	H.slowed_by_drag = FALSE
-	ADD_TRAIT(H, TRAIT_STEELHEARTED, TRAIT_GENERIC)
-	ADD_TRAIT(H, TRAIT_NOSTINK, TRAIT_GENERIC)
-	ADD_TRAIT(H, TRAIT_RIVERSWIMMER, TRAIT_GENERIC)
+			H.mind.adjust_skillrank(/datum/skill/combat/swords, 2, TRUE)
+			H.mind.adjust_skillrank(/datum/skill/combat/crossbows, 4, TRUE)
+			H.change_stat("speed", 4)
+			H.change_stat("intelligence", 3)
+			if(aspect_chosen(/datum/round_aspect/suprememedics))
+				H.change_stat("strength", 5)
+				H.mind.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
+				H.cmode_music = 'sound/music/medic.ogg'
+			else
+				H.change_stat("strength", -2)
+		H.slowed_by_drag = FALSE
+		ADD_TRAIT(H, TRAIT_STEELHEARTED, TRAIT_GENERIC)
+		ADD_TRAIT(H, TRAIT_NOSTINK, TRAIT_GENERIC)
+		ADD_TRAIT(H, TRAIT_RIVERSWIMMER, TRAIT_GENERIC)
 
-	ADD_TRAIT(H, TRAIT_MEDIC, TRAIT_GENERIC)
-	ADD_TRAIT(H, TRAIT_CRITICAL_RESISTANCE, TRAIT_GENERIC)
-	ADD_TRAIT(H, TRAIT_ZJUMP, TRAIT_GENERIC)
+		ADD_TRAIT(H, TRAIT_MEDIC, TRAIT_GENERIC)
+		ADD_TRAIT(H, TRAIT_CRITICAL_RESISTANCE, TRAIT_GENERIC)
+		ADD_TRAIT(H, TRAIT_ZJUMP, TRAIT_GENERIC)
+	else if(loadout_choice == "sapper")
+		if(H.mind)
+			H.mind.adjust_skillrank(/datum/skill/misc/climbing, 3, TRUE)
+			H.mind.adjust_skillrank(/datum/skill/misc/athletics, 1, TRUE)
+			H.mind.adjust_skillrank(/datum/skill/craft/crafting, 6, TRUE)
+			H.mind.adjust_skillrank(/datum/skill/craft/carpentry, 6, TRUE)
+			H.mind.adjust_skillrank(/datum/skill/craft/armorsmithing, 4, TRUE)
+			H.mind.adjust_skillrank(/datum/skill/craft/blacksmithing, 4, TRUE)
+			H.mind.adjust_skillrank(/datum/skill/craft/masonry, 1, TRUE)
+			H.mind.adjust_skillrank(/datum/skill/combat/axesmaces, 3, TRUE)
+			H.mind.adjust_skillrank(/datum/skill/combat/knives, 1, TRUE)
+			H.change_stat("strength", 2)
+		H.slowed_by_drag = FALSE // for dragging crates and what not
+		ADD_TRAIT(H, TRAIT_STEELHEARTED, TRAIT_GENERIC)
+		ADD_TRAIT(H, TRAIT_NOSTINK, TRAIT_GENERIC)
 
 //// SKIRMISHER ////
 
@@ -1471,9 +1486,8 @@
 	reinforcements_wave = 0
 	allowed_races = ALL_RACES_LIST_NAMES
 	loadout_options = list("Light Zealot", "Medium Zealot", "Heavy Zealot")
-	loadout_prompt = "Choose your Zealot loadout"
 
-/datum/outfit/job/roguetown/bluskirmisher/proc/assign_blue_skirmisher_loadout()
+/datum/outfit/job/roguetown/bluskirmisher/proc/assign_loadout()
 	var/loadout = loadout_choice
 	if(!loadout)
 		loadout = pick("light zealot", "medium zealot", "heavy zealot")
@@ -1504,7 +1518,7 @@
 		backr = /obj/item/rogueweapon/sword/long/reskin/regime
 
 /datum/outfit/job/roguetown/bluskirmisher/pre_equip(mob/living/carbon/human/H, visualsOnly)
-	assign_blue_skirmisher_loadout()
+	assign_loadout()
 	if(H.mind)
 		H.mind.adjust_skillrank(/datum/skill/misc/swimming, 3, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/misc/climbing, 3, TRUE)
@@ -1522,7 +1536,6 @@
 	ADD_TRAIT(H, TRAIT_STEELHEARTED, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_NOSTINK, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_ZJUMP, TRAIT_GENERIC)
-
 
 /obj/item/rogue/caltrop
 	name = "caltrop"

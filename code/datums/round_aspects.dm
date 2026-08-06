@@ -83,8 +83,8 @@
 
 /datum/round_aspect/supplypoints/apply()
 	var/datum/game_mode/warmongers/W = SSticker.mode
-	W.blu_bonus = 10
-	W.red_bonus = 10
+	W.blu_bonus = 24
+	W.red_bonus = 24
 
 /datum/round_aspect/superiorbreeds
 	name = "The Superior Breed"

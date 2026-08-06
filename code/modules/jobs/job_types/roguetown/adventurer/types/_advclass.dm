@@ -30,9 +30,9 @@
 	//What categories we are going to sort it in
 	var/list/category_tags = list(CTAG_DISABLED)
 	var/list/loadout_options
-	var/loadout_prompt = "Choose your loadout"
+	var/loadout_prompt = "Choose your loadout!"
 	var/list/secondary_loadout_options
-	var/secondary_loadout_prompt = "Choose your secondary loadout"
+	var/secondary_loadout_prompt = "Choose your secondary loadout!"
 
 /datum/advclass/proc/equipme(mob/living/carbon/human/H)
 	// input sleeps....
