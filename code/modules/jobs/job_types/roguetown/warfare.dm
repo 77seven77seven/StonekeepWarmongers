@@ -19,7 +19,9 @@
 			ADD_TRAIT(H, TRAIT_NOMOOD, TRAIT_GENERIC)
 
 		if(aspect_chosen(/datum/round_aspect/monkwarfare))
-			H.mind.adjust_skillrank(/datum/skill/combat/unarmed, 6, TRUE)
+			HU.adjust_skillranks(list(
+				/datum/skill/combat/unarmed = 6
+			))
 
 		/*
 		if(aspect_chosen(/datum/round_aspect/cripplefight))
@@ -57,13 +59,13 @@
 		// root.ogg is the default combat music for every mob. it basically checks if combat music was set already, and if not, it sets it. Possibly dumb, but it works and nobody is a coder for this codebase except me :)
 		HU.client.preload_sounds()
 
-/mob/living/carbon/human/proc/apply_warfare_skill_ranks(list/skill_ranks)
+/mob/living/carbon/human/proc/adjust_skillranks(list/skill_ranks)
 	if(!mind)
 		return
 	for(var/skill_type in skill_ranks)
 		mind.adjust_skillrank(skill_type, skill_ranks[skill_type], TRUE)
 
-/mob/living/carbon/human/proc/apply_warfare_stat_changes(list/stat_changes)
+/mob/living/carbon/human/proc/change_stats(list/stat_changes)
 	for(var/stat_name in stat_changes)
 		change_stat(stat_name, stat_changes[stat_name])
 
@@ -287,16 +289,22 @@
 
 	if(aspect_chosen(/datum/round_aspect/stronglords))
 		H.STASTR = 20
-		H.mind.adjust_skillrank(/datum/skill/combat/unarmed, 6, TRUE)
+		H.adjust_skillranks(list(
+			/datum/skill/combat/unarmed = 6
+		))
 		ADD_TRAIT(H, TRAIT_RIVERSWIMMER, TRAIT_GENERIC)
 
 	if(aspect_chosen(/datum/round_aspect/veteranlords))
-		H.change_stat("strength", 3)
+		H.change_stats(list(
+			"strength" = 3
+		))
 		H.STACON = 25
-		H.mind.adjust_skillrank(/datum/skill/combat/swords, 5, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/combat/unarmed, 3, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/combat/wrestling, 3, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/combat/flintlocks, 3, TRUE)
+		H.adjust_skillranks(list(
+			/datum/skill/combat/swords = 5,
+			/datum/skill/combat/unarmed = 3,
+			/datum/skill/combat/wrestling = 3,
+			/datum/skill/combat/flintlocks = 3
+		))
 		ADD_TRAIT(H, TRAIT_HEAVYARMOR, TRAIT_GENERIC)
 		ADD_TRAIT(H, TRAIT_STEELHEARTED, TRAIT_GENERIC) // Desensitized through thousand campaigns
 
@@ -322,22 +330,26 @@
 	if(!(findtext(H.real_name, " of ") || findtext(H.real_name, " the ")))
 		H.change_name("[H.real_name] [getlordtitle()]")
 	if(H.mind)
-		H.mind.adjust_skillrank(/datum/skill/combat/unarmed, 3, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/combat/swords, 5, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/misc/athletics, 4, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/misc/reading, 4, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/misc/riding, 4, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/combat/flintlocks, 4, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/craft/crafting, 5, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/craft/carpentry, 5, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/misc/leadership, 5, TRUE)
-		H.change_stat("strength", 2)
-		H.change_stat("intelligence", 3)
-		H.change_stat("endurance", 3)
-		H.change_stat("constitution", 3)
-		H.change_stat("speed", 1)
-		H.change_stat("perception", 4)
-		H.change_stat("fortune", 3)
+		H.adjust_skillranks(list(
+			/datum/skill/combat/unarmed = 3,
+			/datum/skill/combat/swords = 5,
+			/datum/skill/misc/athletics = 4,
+			/datum/skill/misc/reading = 4,
+			/datum/skill/misc/riding = 4,
+			/datum/skill/combat/flintlocks = 4,
+			/datum/skill/craft/crafting = 5,
+			/datum/skill/craft/carpentry = 5,
+			/datum/skill/misc/leadership = 5
+		))
+		H.change_stats(list(
+			"strength" = 2,
+			"intelligence" = 3,
+			"endurance" = 3,
+			"constitution" = 3,
+			"speed" = 1,
+			"perception" = 4,
+			"fortune" = 3
+		))
 		H.mind.AddSpell(new /obj/effect/proc_holder/spell/targeted/inspire)
 		H.cmode_music = 'sound/music/soberandhatingit.ogg'
 	ADD_TRAIT(H, TRAIT_NOBLE, TRAIT_GENERIC)
@@ -432,7 +444,7 @@
 	..()
 	assign_loadout()
 	if(H.mind)
-		H.apply_warfare_skill_ranks(list(
+		H.adjust_skillranks(list(
 			/datum/skill/combat/swords = 2,
 			/datum/skill/combat/flintlocks = 3,
 			/datum/skill/combat/wrestling = 3,
@@ -444,7 +456,7 @@
 			/datum/skill/craft/crafting = 4,
 			/datum/skill/craft/carpentry = 3
 		))
-		H.apply_warfare_stat_changes(list(
+		H.change_stats(list(
 			"strength" = 1,
 			"perception" = 1,
 			"endurance" = 1,
@@ -494,7 +506,7 @@
 	..()
 	assign_loadout()
 	if(H.mind)
-		H.apply_warfare_skill_ranks(list(
+		H.adjust_skillranks(list(
 			/datum/skill/combat/flintlocks = 4,
 			/datum/skill/combat/unarmed = 2,
 			/datum/skill/misc/swimming = 2,
@@ -503,7 +515,7 @@
 			/datum/skill/craft/crafting = 3,
 			/datum/skill/craft/carpentry = 3
 		))
-		H.apply_warfare_stat_changes(list(
+		H.change_stats(list(
 			"strength" = 1,
 			"perception" = -1,
 			"endurance" = 2,
@@ -568,7 +580,7 @@
 	..()
 	assign_loadout()
 	if(H.mind)
-		H.apply_warfare_skill_ranks(list(
+		H.adjust_skillranks(list(
 			/datum/skill/combat/flintlocks = 1,
 			/datum/skill/combat/polearms = 3,
 			/datum/skill/misc/riding = 4,
@@ -580,7 +592,7 @@
 			/datum/skill/craft/crafting = 3,
 			/datum/skill/craft/carpentry = 3
 		))
-		H.apply_warfare_stat_changes(list(
+		H.change_stats(list(
 			"strength" = 1,
 			"perception" = -1,
 			"endurance" = 1,
@@ -639,7 +651,7 @@
 	..()
 	assign_loadout()
 	if(H.mind)
-		H.apply_warfare_skill_ranks(list(
+		H.adjust_skillranks(list(
 			/datum/skill/combat/swords = 1,
 			/datum/skill/combat/flintlocks = 5,
 			/datum/skill/combat/wrestling = 3,
@@ -651,7 +663,7 @@
 			/datum/skill/craft/crafting = 3,
 			/datum/skill/craft/carpentry = 3
 		))
-		H.apply_warfare_stat_changes(list(
+		H.change_stats(list(
 			"strength" = 1,
 			"perception" = 3,
 			"endurance" = 1,
@@ -706,7 +718,7 @@
 	..()
 	assign_loadout()
 	if(H.mind)
-		H.apply_warfare_skill_ranks(list(
+		H.adjust_skillranks(list(
 			/datum/skill/combat/swords = 2,
 			/datum/skill/combat/flintlocks = 2,
 			/datum/skill/misc/swimming = 1,
@@ -718,7 +730,7 @@
 			/datum/skill/craft/carpentry = 3
 		))
 		H.mind.AddSpell(new /obj/effect/proc_holder/spell/targeted/inspire)
-		H.apply_warfare_stat_changes(list(
+		H.change_stats(list(
 			"intelligence" = 3
 		))
 	ADD_TRAIT(H, TRAIT_OFFICER, TRAIT_GENERIC)
@@ -768,7 +780,7 @@
 	..()
 	assign_loadout()
 	if(H.mind)
-		H.apply_warfare_skill_ranks(list(
+		H.adjust_skillranks(list(
 			/datum/skill/combat/whipsflails = 3,
 			/datum/skill/combat/axesmaces = 2,
 			/datum/skill/combat/wrestling = 3,
@@ -780,7 +792,7 @@
 			/datum/skill/craft/crafting = 4,
 			/datum/skill/craft/carpentry = 3
 		))
-		H.apply_warfare_stat_changes(list(
+		H.change_stats(list(
 			"strength" = 1,
 			"perception" = 1,
 			"endurance" = 1,
@@ -818,25 +830,35 @@
 	mask = /obj/item/clothing/mask/rogue/war/mask/medical
 	backpack_contents = list(/obj/item/reagent_containers/glass/bottle/rogue/healthpot = 1)
 	if(H.mind)
-		H.mind.adjust_skillrank(/datum/skill/misc/swimming, 3, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/misc/climbing, 3, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/misc/athletics, 5, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/misc/riding, 2, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/misc/medicine, 6, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/misc/sewing, 6, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/craft/crafting, 3, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/craft/carpentry, 3, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/combat/swords, 2, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/combat/crossbows, 4, TRUE)
-		H.change_stat("speed", 4)
-		H.change_stat("intelligence", 3)
+		H.adjust_skillranks(list(
+			/datum/skill/misc/swimming = 3,
+			/datum/skill/misc/climbing = 3,
+			/datum/skill/misc/athletics = 5,
+			/datum/skill/misc/riding = 2,
+			/datum/skill/misc/medicine = 6,
+			/datum/skill/misc/sewing = 6,
+			/datum/skill/craft/crafting = 3,
+			/datum/skill/craft/carpentry = 3,
+			/datum/skill/combat/knives = 2,
+			/datum/skill/combat/swords = 2,
+			/datum/skill/combat/crossbows = 4
+		))
+		H.change_stats(list(
+			"speed" = 4,
+			"intelligence" = 3
+		))
 		if(aspect_chosen(/datum/round_aspect/suprememedics))
-			H.change_stat("strength", 5)
-			H.mind.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
+			H.change_stats(list(
+				"strength" = 5
+			))
+			H.adjust_skillranks(list(
+				/datum/skill/combat/knives = 2
+			))
 			H.cmode_music = 'sound/music/medic.ogg'
 		else
-			H.change_stat("strength", -2)
+			H.change_stats(list(
+				"strength" = -2
+			))
 	H.slowed_by_drag = FALSE
 	ADD_TRAIT(H, TRAIT_STEELHEARTED, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_NOSTINK, TRAIT_GENERIC)
@@ -894,19 +916,23 @@
 /datum/outfit/job/roguetown/redskirmisher/pre_equip(mob/living/carbon/human/H, visualsOnly)
 	assign_loadout()
 	if(H.mind)
-		H.mind.adjust_skillrank(/datum/skill/misc/swimming, 3, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/misc/climbing, 3, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/misc/athletics, 5, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/misc/riding, 2, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/combat/swords, 4, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/combat/polearms, 3, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/combat/knives, 3, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/combat/axesmaces, 3, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/combat/whipsflails, 3, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/combat/shields, 3, TRUE)
-		H.change_stat("speed", 3)
-		H.change_stat("intelligence", 1)
-		H.change_stat("strength", 3)
+		H.adjust_skillranks(list(
+			/datum/skill/misc/swimming = 3,
+			/datum/skill/misc/climbing = 3,
+			/datum/skill/misc/athletics = 5,
+			/datum/skill/misc/riding = 2,
+			/datum/skill/combat/swords = 4,
+			/datum/skill/combat/polearms = 3,
+			/datum/skill/combat/knives = 3,
+			/datum/skill/combat/axesmaces = 3,
+			/datum/skill/combat/whipsflails = 3,
+			/datum/skill/combat/shields = 3
+		))
+		H.change_stats(list(
+			"speed" = 3,
+			"intelligence" = 1,
+			"strength" = 3
+		))
 	ADD_TRAIT(H, TRAIT_STEELHEARTED, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_NOSTINK, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_ZJUMP, TRAIT_GENERIC)
@@ -938,15 +964,21 @@
 
 	if(aspect_chosen(/datum/round_aspect/stronglords))
 		H.STASTR = 20
-		H.mind.adjust_skillrank(/datum/skill/combat/unarmed, 6, TRUE)
+		H.adjust_skillranks(list(
+			/datum/skill/combat/unarmed = 6
+		))
 		ADD_TRAIT(H, TRAIT_RIVERSWIMMER, TRAIT_GENERIC)
 
 	if(aspect_chosen(/datum/round_aspect/veteranlords))
-		H.change_stat("strength", 3)
-		H.mind.adjust_skillrank(/datum/skill/combat/swords, 5, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/combat/unarmed, 3, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/combat/wrestling, 3, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/combat/flintlocks, 3, TRUE)
+		H.change_stats(list(
+			"strength" = 3
+		))
+		H.adjust_skillranks(list(
+			/datum/skill/combat/swords = 5,
+			/datum/skill/combat/unarmed = 3,
+			/datum/skill/combat/wrestling = 3,
+			/datum/skill/combat/flintlocks = 3
+		))
 		ADD_TRAIT(H, TRAIT_HEAVYARMOR, TRAIT_GENERIC)
 		ADD_TRAIT(H, TRAIT_STEELHEARTED, TRAIT_GENERIC) // Desensitized through thousand campaigns
 
@@ -976,22 +1008,26 @@
 	if(!(findtext(H.real_name, " of ") || findtext(H.real_name, " the ")))
 		H.change_name("[H.real_name] [getlordtitle()]")
 	if(H.mind)
-		H.mind.adjust_skillrank(/datum/skill/combat/unarmed, 3, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/combat/swords, 5, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/misc/athletics, 4, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/misc/reading, 4, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/misc/riding, 4, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/combat/flintlocks, 4, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/craft/crafting, 5, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/craft/carpentry, 5, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/misc/leadership, 5, TRUE)
-		H.change_stat("strength", 2)
-		H.change_stat("intelligence", 3)
-		H.change_stat("endurance", 3)
-		H.change_stat("constitution", 3)
-		H.change_stat("speed", 1)
-		H.change_stat("perception", 4)
-		H.change_stat("fortune", 3)
+		H.adjust_skillranks(list(
+			/datum/skill/combat/unarmed = 3,
+			/datum/skill/combat/swords = 5,
+			/datum/skill/misc/athletics = 4,
+			/datum/skill/misc/reading = 4,
+			/datum/skill/misc/riding = 4,
+			/datum/skill/combat/flintlocks = 4,
+			/datum/skill/craft/crafting = 5,
+			/datum/skill/craft/carpentry = 5,
+			/datum/skill/misc/leadership = 5
+		))
+		H.change_stats(list(
+			"strength" = 2,
+			"intelligence" = 3,
+			"endurance" = 3,
+			"constitution" = 3,
+			"speed" = 1,
+			"perception" = 4,
+			"fortune" = 3
+		))
 		H.mind.AddSpell(new /obj/effect/proc_holder/spell/targeted/inspire)
 		H.cmode_music = 'sound/music/makeamartyrofme.ogg'
 	ADD_TRAIT(H, TRAIT_NOBLE, TRAIT_GENERIC)
@@ -1085,7 +1121,7 @@
 	..()
 	assign_loadout()
 	if(H.mind)
-		H.apply_warfare_skill_ranks(list(
+		H.adjust_skillranks(list(
 			/datum/skill/combat/swords = 2,
 			/datum/skill/combat/flintlocks = 3,
 			/datum/skill/combat/wrestling = 3,
@@ -1097,7 +1133,7 @@
 			/datum/skill/craft/crafting = 4,
 			/datum/skill/craft/carpentry = 3
 		))
-		H.apply_warfare_stat_changes(list(
+		H.change_stats(list(
 			"strength" = 1,
 			"perception" = 1,
 			"endurance" = 1,
@@ -1146,7 +1182,7 @@
 	..()
 	assign_loadout()
 	if(H.mind)
-		H.apply_warfare_skill_ranks(list(
+		H.adjust_skillranks(list(
 			/datum/skill/combat/flintlocks = 4,
 			/datum/skill/combat/unarmed = 2,
 			/datum/skill/misc/swimming = 2,
@@ -1155,7 +1191,7 @@
 			/datum/skill/craft/crafting = 3,
 			/datum/skill/craft/carpentry = 3
 		))
-		H.apply_warfare_stat_changes(list(
+		H.change_stats(list(
 			"strength" = 3,
 			"perception" = -1,
 			"endurance" = 4,
@@ -1217,7 +1253,7 @@
 	..()
 	assign_loadout()
 	if(H.mind)
-		H.apply_warfare_skill_ranks(list(
+		H.adjust_skillranks(list(
 			/datum/skill/combat/flintlocks = 1,
 			/datum/skill/combat/polearms = 3,
 			/datum/skill/misc/riding = 4,
@@ -1229,7 +1265,7 @@
 			/datum/skill/craft/crafting = 3,
 			/datum/skill/craft/carpentry = 3
 		))
-		H.apply_warfare_stat_changes(list(
+		H.change_stats(list(
 			"strength" = 1,
 			"perception" = -1,
 			"endurance" = 1,
@@ -1284,7 +1320,7 @@
 	..()
 	assign_loadout()
 	if(H.mind)
-		H.apply_warfare_skill_ranks(list(
+		H.adjust_skillranks(list(
 			/datum/skill/combat/swords = 1,
 			/datum/skill/combat/flintlocks = 5,
 			/datum/skill/combat/wrestling = 3,
@@ -1296,7 +1332,7 @@
 			/datum/skill/craft/crafting = 3,
 			/datum/skill/craft/carpentry = 3
 		))
-		H.apply_warfare_stat_changes(list(
+		H.change_stats(list(
 			"strength" = 1,
 			"perception" = 3,
 			"endurance" = 1,
@@ -1348,7 +1384,7 @@
 	..()
 	assign_loadout()
 	if(H.mind)
-		H.apply_warfare_skill_ranks(list(
+		H.adjust_skillranks(list(
 			/datum/skill/combat/whipsflails = 3,
 			/datum/skill/combat/wrestling = 3,
 			/datum/skill/combat/axesmaces = 2,
@@ -1360,7 +1396,7 @@
 			/datum/skill/craft/crafting = 4,
 			/datum/skill/craft/carpentry = 3
 		))
-		H.apply_warfare_stat_changes(list(
+		H.change_stats(list(
 			"strength" = 1,
 			"endurance" = 2,
 			"constitution" = 1
@@ -1413,7 +1449,7 @@
 /datum/outfit/job/roguetown/bluofficer/pre_equip(mob/living/carbon/human/H, visualsOnly)
 	assign_loadout()
 	if(H.mind)
-		H.apply_warfare_skill_ranks(list(
+		H.adjust_skillranks(list(
 			/datum/skill/combat/swords = 2,
 			/datum/skill/combat/flintlocks = 2,
 			/datum/skill/misc/swimming = 1,
@@ -1425,7 +1461,7 @@
 			/datum/skill/craft/carpentry = 3
 		))
 		H.mind.AddSpell(new /obj/effect/proc_holder/spell/targeted/inspire)
-		H.apply_warfare_stat_changes(list(
+		H.change_stats(list(
 			"intelligence" = 3
 		))
 	ADD_TRAIT(H, TRAIT_OFFICER, TRAIT_GENERIC)
@@ -1480,25 +1516,35 @@
 	assign_loadout()
 	if(loadout_choice == "medic")
 		if(H.mind)
-			H.mind.adjust_skillrank(/datum/skill/misc/swimming, 3, TRUE)
-			H.mind.adjust_skillrank(/datum/skill/misc/climbing, 3, TRUE)
-			H.mind.adjust_skillrank(/datum/skill/misc/athletics, 5, TRUE)
-			H.mind.adjust_skillrank(/datum/skill/misc/riding, 2, TRUE)
-			H.mind.adjust_skillrank(/datum/skill/misc/medicine, 6, TRUE)
-			H.mind.adjust_skillrank(/datum/skill/misc/sewing, 6, TRUE)
-			H.mind.adjust_skillrank(/datum/skill/craft/crafting, 3, TRUE)
-			H.mind.adjust_skillrank(/datum/skill/craft/carpentry, 3, TRUE)
-			H.mind.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
-			H.mind.adjust_skillrank(/datum/skill/combat/swords, 2, TRUE)
-			H.mind.adjust_skillrank(/datum/skill/combat/crossbows, 4, TRUE)
-			H.change_stat("speed", 4)
-			H.change_stat("intelligence", 3)
+			H.adjust_skillranks(list(
+				/datum/skill/misc/swimming = 3,
+				/datum/skill/misc/climbing = 3,
+				/datum/skill/misc/athletics = 5,
+				/datum/skill/misc/riding = 2,
+				/datum/skill/misc/medicine = 6,
+				/datum/skill/misc/sewing = 6,
+				/datum/skill/craft/crafting = 3,
+				/datum/skill/craft/carpentry = 3,
+				/datum/skill/combat/knives = 2,
+				/datum/skill/combat/swords = 2,
+				/datum/skill/combat/crossbows = 4
+			))
+			H.change_stats(list(
+				"speed" = 4,
+				"intelligence" = 3
+			))
 			if(aspect_chosen(/datum/round_aspect/suprememedics))
-				H.change_stat("strength", 5)
-				H.mind.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
+				H.change_stats(list(
+					"strength" = 5
+				))
+				H.adjust_skillranks(list(
+					/datum/skill/combat/knives = 2
+				))
 				H.cmode_music = 'sound/music/medic.ogg'
 			else
-				H.change_stat("strength", -2)
+				H.change_stats(list(
+					"strength" = -2
+				))
 		H.slowed_by_drag = FALSE
 		ADD_TRAIT(H, TRAIT_STEELHEARTED, TRAIT_GENERIC)
 		ADD_TRAIT(H, TRAIT_NOSTINK, TRAIT_GENERIC)
@@ -1509,16 +1555,20 @@
 		ADD_TRAIT(H, TRAIT_ZJUMP, TRAIT_GENERIC)
 	else if(loadout_choice == "sapper")
 		if(H.mind)
-			H.mind.adjust_skillrank(/datum/skill/misc/climbing, 3, TRUE)
-			H.mind.adjust_skillrank(/datum/skill/misc/athletics, 1, TRUE)
-			H.mind.adjust_skillrank(/datum/skill/craft/crafting, 6, TRUE)
-			H.mind.adjust_skillrank(/datum/skill/craft/carpentry, 6, TRUE)
-			H.mind.adjust_skillrank(/datum/skill/craft/armorsmithing, 4, TRUE)
-			H.mind.adjust_skillrank(/datum/skill/craft/blacksmithing, 4, TRUE)
-			H.mind.adjust_skillrank(/datum/skill/craft/masonry, 1, TRUE)
-			H.mind.adjust_skillrank(/datum/skill/combat/axesmaces, 3, TRUE)
-			H.mind.adjust_skillrank(/datum/skill/combat/knives, 1, TRUE)
-			H.change_stat("strength", 2)
+			H.adjust_skillranks(list(
+				/datum/skill/misc/climbing = 3,
+				/datum/skill/misc/athletics = 1,
+				/datum/skill/craft/crafting = 6,
+				/datum/skill/craft/carpentry = 6,
+				/datum/skill/craft/armorsmithing = 4,
+				/datum/skill/craft/blacksmithing = 4,
+				/datum/skill/craft/masonry = 1,
+				/datum/skill/combat/axesmaces = 3,
+				/datum/skill/combat/knives = 1
+			))
+			H.change_stats(list(
+				"strength" = 2
+			))
 		H.slowed_by_drag = FALSE // for dragging crates and what not
 		ADD_TRAIT(H, TRAIT_STEELHEARTED, TRAIT_GENERIC)
 		ADD_TRAIT(H, TRAIT_NOSTINK, TRAIT_GENERIC)
@@ -1571,19 +1621,23 @@
 /datum/outfit/job/roguetown/bluskirmisher/pre_equip(mob/living/carbon/human/H, visualsOnly)
 	assign_loadout()
 	if(H.mind)
-		H.mind.adjust_skillrank(/datum/skill/misc/swimming, 3, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/misc/climbing, 3, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/misc/athletics, 5, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/misc/riding, 2, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/combat/swords, 4, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/combat/polearms, 3, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/combat/knives, 3, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/combat/axesmaces, 3, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/combat/whipsflails, 3, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/combat/shields, 3, TRUE)
-		H.change_stat("speed", 3)
-		H.change_stat("intelligence", 1)
-		H.change_stat("strength", 3)
+		H.adjust_skillranks(list(
+			/datum/skill/misc/swimming = 3,
+			/datum/skill/misc/climbing = 3,
+			/datum/skill/misc/athletics = 5,
+			/datum/skill/misc/riding = 2,
+			/datum/skill/combat/swords = 4,
+			/datum/skill/combat/polearms = 3,
+			/datum/skill/combat/knives = 3,
+			/datum/skill/combat/axesmaces = 3,
+			/datum/skill/combat/whipsflails = 3,
+			/datum/skill/combat/shields = 3
+		))
+		H.change_stats(list(
+			"speed" = 3,
+			"intelligence" = 1,
+			"strength" = 3
+		))
 	ADD_TRAIT(H, TRAIT_STEELHEARTED, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_NOSTINK, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_ZJUMP, TRAIT_GENERIC)
