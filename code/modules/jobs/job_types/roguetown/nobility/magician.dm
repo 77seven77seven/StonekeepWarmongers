@@ -113,7 +113,7 @@
 /datum/status_effect/buff/thinking_cap
 	id = "thinkingcap"
 	alert_type = /atom/movable/screen/alert/status_effect/buff/thinking_cap
-	effectedstats = list("intelligence" = 2)
+	affected_stats = list("intelligence" = 2)
 	duration = 240 MINUTES
 
 /datum/status_effect/buff/thinking_cap/on_apply()

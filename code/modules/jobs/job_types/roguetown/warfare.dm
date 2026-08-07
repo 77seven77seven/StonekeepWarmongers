@@ -814,59 +814,101 @@
 	maximum_possible_slots = -1
 	reinforcements_wave = 0
 	allowed_races = ALL_RACES_LIST_NAMES
+	loadout_options = list("Medic", "Sapper")
+
+/datum/outfit/job/roguetown/redsupport/proc/assign_loadout()
+	var/loadout = loadout_choice
+	if(!loadout)
+		loadout = pick("medic", "sapper")
+	if(loadout == "medic")
+		pants = /obj/item/clothing/under/roguetown/trou/war/pantaloons
+		shirt = /obj/item/clothing/suit/roguetown/shirt/war/ppr/basicshirt
+		shoes = /obj/item/clothing/shoes/roguetown/boots/war/stompers
+		belt = /obj/item/storage/belt/rogue/leather/rope/war
+		backl = /obj/item/storage/backpack/rogue/satchel/surgbag
+		neck = /obj/item/needle/blessed
+		beltl = /obj/item/rogue/cranker
+		beltr = /obj/item/rogueweapon/surgery/limbgrabber
+		cloak = /obj/item/clothing/cloak/war/apron/cook/medical
+		mask = /obj/item/clothing/mask/rogue/war/mask/medical
+		backpack_contents = list(/obj/item/reagent_containers/glass/bottle/rogue/healthpot = 1)
+	else if(loadout == "sapper")
+		pants = /obj/item/clothing/under/roguetown/trou/war/pantaloons
+		armor = /obj/item/clothing/suit/roguetown/armor/plate/half/iron/war/ppr/alternate
+		shirt = /obj/item/clothing/suit/roguetown/shirt/war/ppr/basicshirt
+		shoes = /obj/item/clothing/shoes/roguetown/boots/war/stompers
+		gloves = /obj/item/clothing/gloves/roguetown/fingerless
+		belt = /obj/item/storage/belt/rogue/leather/rope/war
+		beltr = /obj/item/storage/roguebag
+		beltl = /obj/item/rogueweapon/woodcut/war
+		backl = /obj/item/storage/backpack/rogue/backpack/war/ppr
+		cloak = /obj/item/clothing/cloak/war/ppr/scarf
+		mask = /obj/item/clothing/mask/rogue/chainmask
+		//mouth = /obj/item/clothing/mask/cigarette/rollie // The PPU is too poor for cigarettes. Or just too uncool.
+		backpack_contents = list(/obj/item/rogueweapon/hammer/claw = 1, /obj/item/rogueweapon/huntingknife = 1, /obj/item/rogue/sandbagkit = 3)
 
 /datum/outfit/job/roguetown/redsupport/pre_equip(mob/living/carbon/human/H, visualsOnly)
 	..()
-
-	pants = /obj/item/clothing/under/roguetown/trou/war/pantaloons
-	shirt = /obj/item/clothing/suit/roguetown/shirt/war/ppr/basicshirt
-	shoes = /obj/item/clothing/shoes/roguetown/boots/war/stompers
-	belt = /obj/item/storage/belt/rogue/leather/rope/war
-	backl = /obj/item/storage/backpack/rogue/satchel/surgbag
-	neck = /obj/item/needle/blessed
-	beltl = /obj/item/rogue/cranker
-	beltr = /obj/item/rogueweapon/surgery/limbgrabber
-	cloak = /obj/item/clothing/cloak/war/apron/cook/medical
-	mask = /obj/item/clothing/mask/rogue/war/mask/medical
-	backpack_contents = list(/obj/item/reagent_containers/glass/bottle/rogue/healthpot = 1)
-	if(H.mind)
-		H.adjust_skillranks(list(
-			/datum/skill/misc/swimming = 3,
-			/datum/skill/misc/climbing = 3,
-			/datum/skill/misc/athletics = 5,
-			/datum/skill/misc/riding = 2,
-			/datum/skill/misc/medicine = 6,
-			/datum/skill/misc/sewing = 6,
-			/datum/skill/craft/crafting = 3,
-			/datum/skill/craft/carpentry = 3,
-			/datum/skill/combat/knives = 2,
-			/datum/skill/combat/swords = 2,
-			/datum/skill/combat/crossbows = 4
-		))
-		H.change_stats(list(
-			"speed" = 4,
-			"intelligence" = 3
-		))
-		if(aspect_chosen(/datum/round_aspect/suprememedics))
-			H.change_stats(list(
-				"strength" = 5
-			))
+	assign_loadout()
+	if(loadout_choice == "medic")
+		if(H.mind)
 			H.adjust_skillranks(list(
-				/datum/skill/combat/knives = 2
+				/datum/skill/misc/swimming = 3,
+				/datum/skill/misc/climbing = 3,
+				/datum/skill/misc/athletics = 5,
+				/datum/skill/misc/riding = 2,
+				/datum/skill/misc/medicine = 6,
+				/datum/skill/misc/sewing = 6,
+				/datum/skill/craft/crafting = 3,
+				/datum/skill/craft/carpentry = 3,
+				/datum/skill/combat/knives = 2,
+				/datum/skill/combat/swords = 2,
+				/datum/skill/combat/crossbows = 4
 			))
-			H.cmode_music = 'sound/music/medic.ogg'
-		else
 			H.change_stats(list(
-				"strength" = -2
+				"speed" = 4,
+				"intelligence" = 3
 			))
-	H.slowed_by_drag = FALSE
-	ADD_TRAIT(H, TRAIT_STEELHEARTED, TRAIT_GENERIC)
-	ADD_TRAIT(H, TRAIT_NOSTINK, TRAIT_GENERIC)
-	ADD_TRAIT(H, TRAIT_RIVERSWIMMER, TRAIT_GENERIC)
+			if(aspect_chosen(/datum/round_aspect/suprememedics))
+				H.change_stats(list(
+					"strength" = 5
+				))
+				H.adjust_skillranks(list(
+					/datum/skill/combat/knives = 2
+				))
+				H.cmode_music = 'sound/music/medic.ogg'
+			else
+				H.change_stats(list(
+					"strength" = -2
+				))
+		H.slowed_by_drag = FALSE
+		ADD_TRAIT(H, TRAIT_STEELHEARTED, TRAIT_GENERIC)
+		ADD_TRAIT(H, TRAIT_NOSTINK, TRAIT_GENERIC)
+		ADD_TRAIT(H, TRAIT_RIVERSWIMMER, TRAIT_GENERIC)
+		ADD_TRAIT(H, TRAIT_BLOODLOSS_IMMUNE, TRAIT_GENERIC)
 
-	ADD_TRAIT(H, TRAIT_MEDIC, TRAIT_GENERIC)
-	ADD_TRAIT(H, TRAIT_CRITICAL_RESISTANCE, TRAIT_GENERIC)
-	ADD_TRAIT(H, TRAIT_ZJUMP, TRAIT_GENERIC)
+		ADD_TRAIT(H, TRAIT_MEDIC, TRAIT_GENERIC)
+		ADD_TRAIT(H, TRAIT_CRITICAL_RESISTANCE, TRAIT_GENERIC)
+		ADD_TRAIT(H, TRAIT_ZJUMP, TRAIT_GENERIC)
+	else if(loadout_choice == "sapper")
+		if(H.mind)
+			H.adjust_skillranks(list(
+				/datum/skill/misc/climbing = 3,
+				/datum/skill/misc/athletics = 1,
+				/datum/skill/craft/crafting = 6,
+				/datum/skill/craft/carpentry = 6,
+				/datum/skill/craft/masonry = 1,
+				/datum/skill/craft/armorsmithing = 4,
+				/datum/skill/craft/blacksmithing = 4,
+				/datum/skill/combat/axesmaces = 3,
+				/datum/skill/combat/knives = 1
+			))
+			H.change_stats(list(
+				"strength" = 2
+			))
+		H.slowed_by_drag = FALSE // for dragging crates and what not
+		ADD_TRAIT(H, TRAIT_STEELHEARTED, TRAIT_GENERIC)
+		ADD_TRAIT(H, TRAIT_NOSTINK, TRAIT_GENERIC)
 
 //// SKIRMISHER ////
 
@@ -1504,12 +1546,13 @@
 		shoes = /obj/item/clothing/shoes/roguetown/boots/war/trompers
 		gloves = /obj/item/clothing/gloves/roguetown/fingerless
 		belt = /obj/item/storage/belt/rogue/leather/rope/war
+		beltr = /obj/item/storage/roguebag
 		beltl = /obj/item/rogueweapon/woodcut/war/regime
 		backl = /obj/item/storage/backpack/rogue/backpack/war/regime
 		cloak = /obj/item/clothing/cloak/war/regime/scarf
 		mask = /obj/item/clothing/mask/rogue/platemask
 		mouth = /obj/item/clothing/mask/cigarette/rollie
-		backpack_contents = list(/obj/item/rogueweapon/hammer/claw = 1, /obj/item/rogueweapon/huntingknife = 1)
+		backpack_contents = list(/obj/item/rogueweapon/hammer/claw = 1, /obj/item/rogueweapon/huntingknife = 1, /obj/item/rogue/sandbagkit = 3)
 
 /datum/outfit/job/roguetown/blusupport/pre_equip(mob/living/carbon/human/H, visualsOnly)
 	..()
@@ -1549,6 +1592,7 @@
 		ADD_TRAIT(H, TRAIT_STEELHEARTED, TRAIT_GENERIC)
 		ADD_TRAIT(H, TRAIT_NOSTINK, TRAIT_GENERIC)
 		ADD_TRAIT(H, TRAIT_RIVERSWIMMER, TRAIT_GENERIC)
+		ADD_TRAIT(H, TRAIT_BLOODLOSS_IMMUNE, TRAIT_GENERIC)
 
 		ADD_TRAIT(H, TRAIT_MEDIC, TRAIT_GENERIC)
 		ADD_TRAIT(H, TRAIT_CRITICAL_RESISTANCE, TRAIT_GENERIC)
@@ -1560,9 +1604,9 @@
 				/datum/skill/misc/athletics = 1,
 				/datum/skill/craft/crafting = 6,
 				/datum/skill/craft/carpentry = 6,
+				/datum/skill/craft/masonry = 1,
 				/datum/skill/craft/armorsmithing = 4,
 				/datum/skill/craft/blacksmithing = 4,
-				/datum/skill/craft/masonry = 1,
 				/datum/skill/combat/axesmaces = 3,
 				/datum/skill/combat/knives = 1
 			))

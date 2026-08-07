@@ -171,7 +171,7 @@
 
 /obj/item/clothing/mask/rogue/chainmask
 	name = "chained mask"
-	desc = "Intended for use in Regimian duelling schools, this simple mask eventually found its way into military application."
+	desc = "Intended for use in duelling schools, this simple mask eventually found its way into military application. Mostly for being very cheap."
 	icon_state = "chainmask"
 	item_state = "chainmask"
 	flags_inv = HIDEFACE|HIDEFACIALHAIR

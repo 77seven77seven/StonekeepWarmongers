@@ -124,7 +124,7 @@ GLOBAL_LIST_INIT(character_flaws, list("Alcoholic"=/datum/charflaw/addiction/alc
 /datum/status_effect/debuff/badvision
 	id = "badvision"
 	alert_type = null
-	effectedstats = list("perception" = -20, "speed" = -5,"fortune" = -20)
+	affected_stats = list("perception" = -20, "speed" = -5,"fortune" = -20)
 	duration = 100
 
 /datum/charflaw/badsight/on_mob_creation(mob/user)

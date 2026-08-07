@@ -55,7 +55,7 @@
 	var/list/things = STR.contents()
 	if(things.len)
 		icon_state = "fbag"
-		w_class = WEIGHT_CLASS_BULKY
+		w_class = WEIGHT_CLASS_HUGE
 	else
 		icon_state = "cbag"
 		w_class = WEIGHT_CLASS_NORMAL
@@ -64,7 +64,7 @@
 	. = ..()
 	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
 	STR.max_combined_w_class = 20
-	STR.max_w_class = WEIGHT_CLASS_NORMAL
+	STR.max_w_class = WEIGHT_CLASS_HUGE
 	STR.max_items = 20
 	STR.click_gather = TRUE
 	STR.attack_hand_interact = FALSE

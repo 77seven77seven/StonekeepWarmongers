@@ -4,7 +4,7 @@
 /datum/status_effect/buff/drunk
 	id = "drunk"
 	alert_type = /atom/movable/screen/alert/status_effect/buff/drunk
-	effectedstats = list("intelligence" = -1, "speed" = -1, "endurance" = 1)
+	affected_stats = list("intelligence" = -1, "speed" = -1, "endurance" = 1)
 	duration = 12 MINUTES
 
 /atom/movable/screen/alert/status_effect/buff/drunk
@@ -26,7 +26,7 @@
 /datum/status_effect/buff/foodbuff
 	id = "foodbuff"
 	alert_type = /atom/movable/screen/alert/status_effect/buff/foodbuff
-	effectedstats = list("constitution" = 1,"endurance" = 1)
+	affected_stats = list("constitution" = 1,"endurance" = 1)
 	duration = 10 MINUTES
 
 /atom/movable/screen/alert/status_effect/buff/foodbuff
@@ -43,7 +43,7 @@
 /datum/status_effect/buff/druqks
 	id = "druqks"
 	alert_type = /atom/movable/screen/alert/status_effect/buff/druqks
-	effectedstats = list("endurance" = 4,"speed" = 1)
+	affected_stats = list("endurance" = 4,"speed" = 1)
 	duration = 2 MINUTES
 
 /datum/status_effect/buff/druqks/on_apply()
@@ -81,7 +81,7 @@
 /datum/status_effect/buff/ozium
 	id = "ozium"
 	alert_type = /atom/movable/screen/alert/status_effect/buff/druqks
-	effectedstats = list("speed" = -3, "strength" = 3)
+	affected_stats = list("speed" = -3, "strength" = 3)
 	duration = 2 MINUTES
 
 /datum/status_effect/buff/ozium/on_apply()
@@ -101,13 +101,14 @@
 /datum/status_effect/buff/smonkium
 	id = "smonkium"
 	alert_type = /atom/movable/screen/alert/status_effect/buff/druqks
-	effectedstats = list("perception" = 3, "speed" = -1)
+	affected_stats = list("perception" = 3, "speed" = -1)
+	affected_skills = list(/datum/skill/combat/flintlocks = 2)
 	duration = 2 MINUTES
 
 /datum/status_effect/buff/moondust
 	id = "moondust"
 	alert_type = /atom/movable/screen/alert/status_effect/buff/druqks
-	effectedstats = list("speed" = 4, "constitution" = 1)
+	affected_stats = list("speed" = 4, "constitution" = 1)
 	duration = 2 MINUTES
 
 /datum/status_effect/buff/moondust/nextmove_modifier()
@@ -128,7 +129,7 @@
 /datum/status_effect/buff/moondust_purest
 	id = "purest moondust"
 	alert_type = /atom/movable/screen/alert/status_effect/buff/druqks
-	effectedstats = list("speed" = 6, "endurance" = 6)
+	affected_stats = list("speed" = 6, "endurance" = 6)
 	duration = 3 MINUTES
 
 /datum/status_effect/buff/moondust_purest/nextmove_modifier()
@@ -150,7 +151,7 @@
 /datum/status_effect/buff/weed
 	id = "weed"
 	alert_type = /atom/movable/screen/alert/status_effect/buff/weed
-	effectedstats = list("intelligence" = 2,"speed" = -2,"fortune" = 2)
+	affected_stats = list("intelligence" = 2,"speed" = -2,"fortune" = 2)
 	duration = 5 MINUTES
 
 /datum/status_effect/buff/weed/on_apply()
@@ -187,7 +188,7 @@
 /datum/status_effect/buff/ravox
 	id = "ravoxbuff"
 	alert_type = /atom/movable/screen/alert/status_effect/buff/ravoxbuff
-	effectedstats = list("constitution" = 1,"endurance" = 1,"strength" = 1)
+	affected_stats = list("constitution" = 1,"endurance" = 1,"strength" = 1)
 	duration = 240 MINUTES
 
 /atom/movable/screen/alert/status_effect/buff/ravoxbuff
@@ -198,7 +199,7 @@
 /datum/status_effect/buff/calm
 	id = "calm"
 	alert_type = /atom/movable/screen/alert/status_effect/buff/calm
-	effectedstats = list("fortune" = 1)
+	affected_stats = list("fortune" = 1)
 	duration = 240 MINUTES
 
 /atom/movable/screen/alert/status_effect/buff/calm
@@ -221,7 +222,7 @@
 /datum/status_effect/buff/noc
 	id = "nocbuff"
 	alert_type = /atom/movable/screen/alert/status_effect/buff/nocbuff
-	effectedstats = list("intelligence" = 3)
+	affected_stats = list("intelligence" = 3)
 	duration = 240 MINUTES
 
 /atom/movable/screen/alert/status_effect/buff/nocbuff
@@ -232,7 +233,7 @@
 /datum/status_effect/buff/inspired
 	id = "inspired"
 	alert_type = /atom/movable/screen/alert/status_effect/buff/inspired
-	effectedstats = list("speed" = 5,"constitution" = 3,"endurance" = 3,"strength" = 2)
+	affected_stats = list("speed" = 5,"constitution" = 3,"endurance" = 3,"strength" = 2)
 	duration = 2 MINUTES
 
 /atom/movable/screen/alert/status_effect/buff/inspired
@@ -243,7 +244,7 @@
 /datum/status_effect/buff/inspired/great
 	id = "inspired_great"
 	alert_type = /atom/movable/screen/alert/status_effect/buff/inspired/great
-	effectedstats = list("speed" = 7,"constitution" = 6,"endurance" = 6,"strength" = 5)
+	affected_stats = list("speed" = 7,"constitution" = 6,"endurance" = 6,"strength" = 5)
 	duration = 3 MINUTES
 
 /atom/movable/screen/alert/status_effect/buff/inspired/great
@@ -259,13 +260,13 @@
 /datum/status_effect/buff/charge
 	id = "charge"
 	alert_type = /atom/movable/screen/alert/status_effect/buff/charge
-	effectedstats = list("speed" = 7)
+	affected_stats = list("speed" = 7)
 	duration = 1 MINUTES
 
 /datum/status_effect/buff/saint
 	id = "saint"
 	alert_type = /atom/movable/screen/alert/status_effect/buff/saint
-	effectedstats = list("speed" = 2,"constitution" = 2,"endurance" = 2,"strength" = 2)
+	affected_stats = list("speed" = 2,"constitution" = 2,"endurance" = 2,"strength" = 2)
 	duration = 1 MINUTES
 
 /atom/movable/screen/alert/status_effect/buff/saint
@@ -366,7 +367,7 @@
 	stats2text = "Strength I"
 	alert_type = /atom/movable/screen/alert/status_effect/buff/strength1
 	duration = 666 MINUTES
-	effectedstats = list("strength" = 1)
+	affected_stats = list("strength" = 1)
 
 /atom/movable/screen/alert/status_effect/buff/strength1
 	name = "Strength I"
@@ -378,7 +379,7 @@
 	stats2text = "Strength II"
 	alert_type = /atom/movable/screen/alert/status_effect/buff/strength2
 	duration = 666 MINUTES
-	effectedstats = list("strength" = 2)
+	affected_stats = list("strength" = 2)
 
 /atom/movable/screen/alert/status_effect/buff/strength2
 	name = "Strength II"
@@ -390,7 +391,7 @@
 	stats2text = "Strength III"
 	alert_type = /atom/movable/screen/alert/status_effect/buff/strength3
 	duration = 666 MINUTES
-	effectedstats = list("strength" = 3)
+	affected_stats = list("strength" = 3)
 
 /atom/movable/screen/alert/status_effect/buff/strength3
 	name = "Strength III"
@@ -403,7 +404,7 @@
 	stats2text = "Perception I"
 	alert_type = /atom/movable/screen/alert/status_effect/buff/perception1
 	duration = 666 MINUTES
-	effectedstats = list("perception" = 1)
+	affected_stats = list("perception" = 1)
 
 /atom/movable/screen/alert/status_effect/buff/perception1
 	name = "Perception I"
@@ -415,7 +416,7 @@
 	stats2text = "Perception II"
 	alert_type = /atom/movable/screen/alert/status_effect/buff/perception2
 	duration = 666 MINUTES
-	effectedstats = list("perception" = 2)
+	affected_stats = list("perception" = 2)
 
 /atom/movable/screen/alert/status_effect/buff/perception2
 	name = "Perception II"
@@ -427,7 +428,7 @@
 	stats2text = "Perception III"
 	alert_type = /atom/movable/screen/alert/status_effect/buff/perception3
 	duration = 666 MINUTES
-	effectedstats = list("perception" = 3)
+	affected_stats = list("perception" = 3)
 
 /atom/movable/screen/alert/status_effect/buff/perception3
 	name = "Perception III"
@@ -440,7 +441,7 @@
 	stats2text = "Intelligence I"
 	alert_type = /atom/movable/screen/alert/status_effect/buff/intelligence1
 	duration = 666 MINUTES
-	effectedstats = list("intelligence" = 1)
+	affected_stats = list("intelligence" = 1)
 
 /atom/movable/screen/alert/status_effect/buff/intelligence1
 	name = "Intelligence I"
@@ -452,7 +453,7 @@
 	stats2text = "Intelligence II"
 	alert_type = /atom/movable/screen/alert/status_effect/buff/intelligence2
 	duration = 666 MINUTES
-	effectedstats = list("intelligence" = 2)
+	affected_stats = list("intelligence" = 2)
 
 /atom/movable/screen/alert/status_effect/buff/intelligence2
 	name = "Intelligence II"
@@ -464,7 +465,7 @@
 	stats2text = "Intelligence III"
 	alert_type = /atom/movable/screen/alert/status_effect/buff/intelligence3
 	duration = 666 MINUTES
-	effectedstats = list("intelligence" = 3)
+	affected_stats = list("intelligence" = 3)
 
 /atom/movable/screen/alert/status_effect/buff/intelligence3
 	name = "Intelligence III"
@@ -477,7 +478,7 @@
 	stats2text = "Constitution I"
 	alert_type = /atom/movable/screen/alert/status_effect/buff/constitution1
 	duration = 666 MINUTES
-	effectedstats = list("constitution" = 1)
+	affected_stats = list("constitution" = 1)
 
 /atom/movable/screen/alert/status_effect/buff/constitution1
 	name = "Constitution I"
@@ -489,7 +490,7 @@
 	stats2text = "Constitution II"
 	alert_type = /atom/movable/screen/alert/status_effect/buff/constitution2
 	duration = 666 MINUTES
-	effectedstats = list("constitution" = 2)
+	affected_stats = list("constitution" = 2)
 
 /atom/movable/screen/alert/status_effect/buff/constitution2
 	name = "Constitution II"
@@ -501,7 +502,7 @@
 	stats2text = "Constitution III"
 	alert_type = /atom/movable/screen/alert/status_effect/buff/constitution3
 	duration = 666 MINUTES
-	effectedstats = list("constitution" = 3)
+	affected_stats = list("constitution" = 3)
 
 /atom/movable/screen/alert/status_effect/buff/constitution3
 	name = "Constitution III"
@@ -514,7 +515,7 @@
 	stats2text = "Endurance I"
 	alert_type = /atom/movable/screen/alert/status_effect/buff/endurance1
 	duration = 666 MINUTES
-	effectedstats = list("endurance" = 1)
+	affected_stats = list("endurance" = 1)
 
 /atom/movable/screen/alert/status_effect/buff/endurance1
 	name = "Endurance I"
@@ -526,7 +527,7 @@
 	stats2text = "Endurance II"
 	alert_type = /atom/movable/screen/alert/status_effect/buff/endurance2
 	duration = 666 MINUTES
-	effectedstats = list("endurance" = 2)
+	affected_stats = list("endurance" = 2)
 
 /atom/movable/screen/alert/status_effect/buff/endurance2
 	name = "Endurance II"
@@ -538,7 +539,7 @@
 	stats2text = "Endurance III"
 	alert_type = /atom/movable/screen/alert/status_effect/buff/endurance3
 	duration = 666 MINUTES
-	effectedstats = list("endurance" = 3)
+	affected_stats = list("endurance" = 3)
 
 /atom/movable/screen/alert/status_effect/buff/endurance3
 	name = "Endurance III"
@@ -551,7 +552,7 @@
 	stats2text = "Speed I"
 	alert_type = /atom/movable/screen/alert/status_effect/buff/speed1
 	duration = 666 MINUTES
-	effectedstats = list("speed" = 1)
+	affected_stats = list("speed" = 1)
 
 /atom/movable/screen/alert/status_effect/buff/speed1
 	name = "Speed I"
@@ -563,7 +564,7 @@
 	stats2text = "Speed II"
 	alert_type = /atom/movable/screen/alert/status_effect/buff/speed2
 	duration = 666 MINUTES
-	effectedstats = list("speed" = 2)
+	affected_stats = list("speed" = 2)
 
 /atom/movable/screen/alert/status_effect/buff/speed2
 	name = "Speed II"
@@ -575,7 +576,7 @@
 	stats2text = "Speed III"
 	alert_type = /atom/movable/screen/alert/status_effect/buff/speed3
 	duration = 666 MINUTES
-	effectedstats = list("speed" = 3)
+	affected_stats = list("speed" = 3)
 
 /atom/movable/screen/alert/status_effect/buff/speed3
 	name = "Speed III"
@@ -588,7 +589,7 @@
 	stats2text = "Fortune I"
 	alert_type = /atom/movable/screen/alert/status_effect/buff/fortune1
 	duration = 666 MINUTES
-	effectedstats = list("fortune" = 1)
+	affected_stats = list("fortune" = 1)
 
 /atom/movable/screen/alert/status_effect/buff/fortune1
 	name = "Fortune I"
@@ -600,7 +601,7 @@
 	stats2text = "Fortune II"
 	alert_type = /atom/movable/screen/alert/status_effect/buff/fortune2
 	duration = 666 MINUTES
-	effectedstats = list("fortune" = 2)
+	affected_stats = list("fortune" = 2)
 
 /atom/movable/screen/alert/status_effect/buff/fortune2
 	name = "Fortune II"
@@ -612,7 +613,7 @@
 	stats2text = "Fortune III"
 	alert_type = /atom/movable/screen/alert/status_effect/buff/fortune3
 	duration = 666 MINUTES
-	effectedstats = list("fortune" = 3)
+	affected_stats = list("fortune" = 3)
 
 /atom/movable/screen/alert/status_effect/buff/fortune3
 	name = "Fortune III"
@@ -629,7 +630,7 @@
 	stats2text = "All Stats Up VI"
 	alert_type = /atom/movable/screen/alert/status_effect/buff/truemonger
 	duration = 666 MINUTES
-	effectedstats = list("strength" = 6, "perception" = 6, "intelligence" = 6, "constitution" = 6, "endurance" = 6, "speed" = 6, "fortune" = 6)
+	affected_stats = list("strength" = 6, "perception" = 6, "intelligence" = 6, "constitution" = 6, "endurance" = 6, "speed" = 6, "fortune" = 6)
 
 /atom/movable/screen/alert/status_effect/buff/truemonger
 	name = "THERE CAN BE ONLY ONE!!"

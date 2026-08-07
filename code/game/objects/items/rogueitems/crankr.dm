@@ -1,4 +1,4 @@
-#define CRANKER_CHEMS		list("HEALTH","DUST OF MOON","OZ","LOVE","SMONKAID","SYNADRENALINEN")
+#define CRANKER_CHEMS		list("HEALTH","DUST OF MOON","OZ","LOVE","SMONKAID","SYNADRENALINEN","COAGULATIONIUM")
 
 /obj/item/rogue/cranker
 	name = "SCHLaNKER"
@@ -60,7 +60,7 @@
 		pot = new /obj/item/reagent_containers/glass/bottle/rogue(src)
 		return
 
-/obj/item/rogue/cranker/attack_right(mob/user)
+/obj/item/rogue/cranker/proc/cook_select(mob/user)
 	var/chosen = input(user, "What are we cooking today?", "WARMONGERS") as null|anything in CRANKER_CHEMS
 	if(!chosen)
 		return
@@ -83,6 +83,15 @@
 		if("SYNADRENALINEN")
 			chosen_potion = /datum/reagent/adrenalinen
 			to_chat(user, "<span class='info'>Synthetic natural morphium. A must have for all soldiers! ADRENALINE+</span>")
+		if("COAGULATIONIUM")
+			chosen_potion = /datum/reagent/coagulationium
+			to_chat(user, "<span class='info'>Natural coagulationium, made from boiled blood and tears. BLOOD-LOSS-IMMUNITY+</span>")
+
+/obj/item/rogue/cranker/attack_right(mob/user)
+	cook_select(user)
+
+/obj/item/rogue/cranker/rmb_self(mob/user)
+	cook_select(user)
 
 /obj/item/rogue/cranker/attack_self(mob/living/carbon/human/user)
 	. = ..()
@@ -261,4 +270,20 @@
 
 /datum/reagent/adrenalinen/on_mob_end_metabolize(mob/living/M)
 	M.remove_status_effect(/datum/status_effect/buff/adrenaline)
+	..()
+
+/datum/reagent/coagulationium
+	name = "Coagulationium"
+	description = ""
+	color = "#949b5aff"
+	overdose_threshold = 0
+	metabolization_rate = 1.5
+	taste_description = "weirdly enough, blood"
+
+/datum/reagent/adrenalinen/on_mob_life(mob/living/carbon/M)
+	ADD_TRAIT(M, TRAIT_BLOODLOSS_IMMUNE, type)
+	..()
+
+/datum/reagent/adrenalinen/on_mob_end_metabolize(mob/living/M)
+	REMOVE_TRAIT(M, TRAIT_BLOODLOSS_IMMUNE, type)
 	..()

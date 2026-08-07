@@ -6,7 +6,7 @@
 /datum/status_effect/debuff/hungryt1
 	id = "hungryt1"
 	alert_type = /atom/movable/screen/alert/status_effect/debuff/hungryt1
-	effectedstats = list("speed" = -1,"strength" = -1, "constitution" = -1, "endurance" = -1)
+	affected_stats = list("speed" = -1,"strength" = -1, "constitution" = -1, "endurance" = -1)
 	duration = 100
 
 /atom/movable/screen/alert/status_effect/debuff/hungryt1
@@ -29,7 +29,7 @@
 /datum/status_effect/debuff/hungryt2
 	id = "hungryt2"
 	alert_type = /atom/movable/screen/alert/status_effect/debuff/hungryt2
-	effectedstats = list("speed" = -4,"strength" = -2, "constitution" = -2, "endurance" = -1)
+	affected_stats = list("speed" = -4,"strength" = -2, "constitution" = -2, "endurance" = -1)
 	duration = 100
 
 /atom/movable/screen/alert/status_effect/debuff/hungryt2
@@ -52,7 +52,7 @@
 /datum/status_effect/debuff/hungryt3
 	id = "hungryt3"
 	alert_type = /atom/movable/screen/alert/status_effect/debuff/hungryt3
-	effectedstats = list("speed" = -6,"strength" = -6, "constitution" = -6, "endurance" = -6)
+	affected_stats = list("speed" = -6,"strength" = -6, "constitution" = -6, "endurance" = -6)
 	duration = 100
 
 /atom/movable/screen/alert/status_effect/debuff/hungryt3
@@ -90,7 +90,7 @@
 /datum/status_effect/debuff/chastity
 	id = "chastity"
 	alert_type = /atom/movable/screen/alert/status_effect/debuff/chastity
-	effectedstats = list("fortune" = -6)
+	affected_stats = list("fortune" = -6)
 	duration = 999 MINUTES
 
 /atom/movable/screen/alert/status_effect/debuff/chastity
@@ -101,7 +101,7 @@
 /datum/status_effect/debuff/wiz
 	id = "wiz"
 	alert_type = /atom/movable/screen/alert/status_effect/debuff/wiz
-	effectedstats = list("intelligence" = -5)
+	affected_stats = list("intelligence" = -5)
 	duration = 999 MINUTES
 
 /atom/movable/screen/alert/status_effect/debuff/wiz
@@ -114,7 +114,7 @@
 /datum/status_effect/debuff/thirstyt1
 	id = "thirsty1"
 	alert_type = /atom/movable/screen/alert/status_effect/debuff/thirstyt1
-	effectedstats = list("endurance" = -1, "speed" = -1)
+	affected_stats = list("endurance" = -1, "speed" = -1)
 	duration = 100
 
 /atom/movable/screen/alert/status_effect/debuff/thirstyt1
@@ -138,7 +138,7 @@
 /datum/status_effect/debuff/thirstyt2
 	id = "thirsty2"
 	alert_type = /atom/movable/screen/alert/status_effect/debuff/thirstyt2
-	effectedstats = list("speed" = -4, "endurance" = -4)
+	affected_stats = list("speed" = -4, "endurance" = -4)
 	duration = 100
 
 /atom/movable/screen/alert/status_effect/debuff/thirstyt2
@@ -161,7 +161,7 @@
 /datum/status_effect/debuff/thirstyt3
 	id = "thirsty3"
 	alert_type = /atom/movable/screen/alert/status_effect/debuff/thirstyt3
-	effectedstats = list("strength" = -6, "speed" = -6, "endurance" = -6)
+	affected_stats = list("strength" = -6, "speed" = -6, "endurance" = -6)
 	duration = 100
 
 /atom/movable/screen/alert/status_effect/debuff/thirstyt3
@@ -185,7 +185,7 @@
 
 /datum/status_effect/debuff/uncookedfood
 	id = "uncookedfood"
-	effectedstats = null
+	affected_stats = null
 	duration = 10 MINUTES
 	alert_type = /atom/movable/alert/status_effect/debuff/uncookedfood
 
@@ -204,7 +204,7 @@
 /datum/status_effect/debuff/badmeal
 	alert_type = /atom/movable/alert/status_effect/debuff/badmeal
 	id = "badmeal"
-	effectedstats = null
+	affected_stats = null
 	duration = 10 MINUTES
 
 /atom/movable/alert/status_effect/debuff/badmeal
@@ -221,7 +221,7 @@
 /datum/status_effect/debuff/burnedfood
 	alert_type = /atom/movable/alert/status_effect/debuff/burntmeal
 	id = "burnedfood"
-	effectedstats = null
+	affected_stats = null
 	duration = 10 MINUTES
 
 /datum/status_effect/debuff/burnedfood/on_apply()
@@ -239,7 +239,7 @@
 /datum/status_effect/debuff/rotfood
 	alert_type = /atom/movable/alert/status_effect/debuff/rotfood
 	id = "rotfood"
-	effectedstats = null
+	affected_stats = null
 	duration = 10 MINUTES
 
 /atom/movable/alert/status_effect/debuff/rotfood
@@ -257,7 +257,7 @@
 /datum/status_effect/debuff/bleeding
 	id = "bleedingt1"
 	alert_type = /atom/movable/screen/alert/status_effect/debuff/bleedingt1
-	effectedstats = list("speed" = -2)
+	affected_stats = list("speed" = -2)
 	duration = 100
 
 /atom/movable/screen/alert/status_effect/debuff/bleedingt1
@@ -268,7 +268,7 @@
 /datum/status_effect/debuff/bleedingworse
 	id = "bleedingt2"
 	alert_type = /atom/movable/screen/alert/status_effect/debuff/bleedingt2
-	effectedstats = list("strength" = -1, "speed" = -4)
+	affected_stats = list("strength" = -1, "speed" = -4)
 	duration = 100
 
 /atom/movable/screen/alert/status_effect/debuff/bleedingt2
@@ -279,7 +279,7 @@
 /datum/status_effect/debuff/bleedingworst
 	id = "bleedingt3"
 	alert_type = /atom/movable/screen/alert/status_effect/debuff/bleedingt3
-	effectedstats = list("strength" = -3, "speed" = -6)
+	affected_stats = list("strength" = -3, "speed" = -6)
 	duration = 100
 
 /atom/movable/screen/alert/status_effect/debuff/bleedingt3
@@ -290,7 +290,7 @@
 /datum/status_effect/debuff/sleepytime
 	id = "sleepytime"
 	alert_type = /atom/movable/screen/alert/status_effect/debuff/sleepytime
-	effectedstats = list("speed" = -2, "endurance" = -2)
+	affected_stats = list("speed" = -2, "endurance" = -2)
 
 /atom/movable/screen/alert/status_effect/debuff/sleepytime
 	name = "Tired"
@@ -300,7 +300,7 @@
 /datum/status_effect/debuff/trainsleep
 	id = "trainsleep"
 	alert_type = /atom/movable/screen/alert/status_effect/debuff/trainsleep
-	effectedstats = list("strength" = -3, "speed" = -3,"endurance" = -3)
+	affected_stats = list("strength" = -3, "speed" = -3,"endurance" = -3)
 
 /atom/movable/screen/alert/status_effect/debuff/trainsleep
 	name = "Muscle Soreness"
@@ -310,7 +310,7 @@
 /datum/status_effect/debuff/gas
 	id = "gas"
 	alert_type = /atom/movable/screen/alert/status_effect/debuff/gas
-	effectedstats = list("strength" = -3, "speed" = -3,"endurance" = -3)
+	affected_stats = list("strength" = -3, "speed" = -3,"endurance" = -3)
 	duration = 600
 
 /atom/movable/screen/alert/status_effect/debuff/gas

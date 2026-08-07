@@ -12,7 +12,9 @@
 	var/examine_text //If defined, this text will appear when the mob is examined - to use he, she etc. use "SUBJECTPRONOUN" and replace it in the examines themselves
 	var/alert_type = /atom/movable/screen/alert/status_effect //the alert thrown by the status effect, contains name and description
 	var/atom/movable/screen/alert/status_effect/linked_alert = null //the alert itself, if it exists
-	var/list/effectedstats = list()
+	
+	var/list/affected_stats = list() // If we want to give a person more points in a stat from a status effect, we use this.
+	var/list/affected_skills = list() // If we want to give a person more levels for a skill from a status effect, we use this. Skill LEVELS, not skill EXP.
 
 /datum/status_effect/New(list/arguments)
 	on_creation(arglist(arguments))
@@ -56,19 +58,25 @@
 		qdel(src)
 
 /datum/status_effect/proc/on_apply() //Called whenever the buff is applied; returning FALSE will cause it to autoremove itself.
-	for(var/S in effectedstats)
-		owner.change_stat(S, effectedstats[S])
+	for(var/S in affected_stats)
+		owner.change_stat(S, affected_stats[S])
+	for(var/S in affected_skills)
+		owner.mind.adjust_skillrank(S, affected_skills[S])
 	return TRUE
 
 /datum/status_effect/proc/tick() //Called every tick.
 
 /datum/status_effect/proc/on_remove() //Called whenever the buff expires or is removed; do note that at the point this is called, it is out of the owner's status_effects but owner is not yet null
-	for(var/S in effectedstats)
-		owner.change_stat(S, -(effectedstats[S]))
+	for(var/S in affected_stats)
+		owner.change_stat(S, -(affected_stats[S]))
+	for(var/S in affected_skills)
+		owner.mind.adjust_skillrank(S, -(affected_skills[S]))
 
 /datum/status_effect/proc/be_replaced() //Called instead of on_remove when a status effect is replaced by itself or when a status effect with on_remove_on_mob_delete = FALSE has its mob deleted
-	for(var/S in effectedstats)
-		owner.change_stat(S, -(effectedstats[S]))
+	for(var/S in affected_stats)
+		owner.change_stat(S, -(affected_stats[S]))
+	for(var/S in affected_skills)
+		owner.mind.adjust_skillrank(S, -(affected_skills[S]))
 	owner.clear_alert(id)
 	LAZYREMOVE(owner.status_effects, src)
 	owner = null
@@ -106,15 +114,23 @@
 	if(desc)
 		inspec += "<br>[desc]"
 
-	for(var/S in attached_effect?.effectedstats)
-		if(attached_effect.effectedstats[S] > 0)
-			inspec += "<br><span class='purple'>[S]</span> \Roman [attached_effect.effectedstats[S]]"
-		if(attached_effect.effectedstats[S] < 0)
-			var/newnum = attached_effect.effectedstats[S] * -1
-			inspec += "<br><span class='danger'>[S]</span> \Roman [newnum]"
+	for(var/S in attached_effect?.affected_stats)
+		if(attached_effect.affected_stats[S] > 0)
+			inspec += "<br><span class='purple'>[capitalize(S)]</span> — +[attached_effect.affected_stats[S]]"
+		if(attached_effect.affected_stats[S] < 0)
+			var/newnum = attached_effect.affected_stats[S] * -1
+			inspec += "<br><span class='danger'>[capitalize(S)]</span> — -[newnum]"
+
+	for(var/S in attached_effect?.affected_skills)
+		var/datum/skill/skill_name = S
+		if(attached_effect.affected_skills[S] > 0)
+			inspec += "<br><span class='purple'>[skill_name::name]</span> — +[attached_effect.affected_skills[S]]"
+		if(attached_effect.affected_skills[S] < 0)
+			var/newnum = attached_effect.affected_skills[S] * -1
+			inspec += "<br><span class='danger'>[skill_name::name]</span> — -[newnum]"
 
 	inspec += "<br>----------------------"
-	to_chat(user, "[inspec.Join()]")
+	to_chat(user, examine_block("[inspec.Join()]"))
 
 //////////////////
 // HELPER PROCS //
