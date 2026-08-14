@@ -207,3 +207,5 @@
 	new /obj/item/roguebin/water/gross(src)
 	new /obj/machinery/light/rogue/forge(src)
 	new /obj/machinery/anvil(src)
+	for(var/i = 0 to 3)
+		new /obj/item/rogueore/coal(src)
