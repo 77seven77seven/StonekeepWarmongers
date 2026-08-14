@@ -205,4 +205,5 @@
 	new /obj/item/rogueweapon/tongs(src)
 	new /obj/item/rogueweapon/hammer(src)
 	new /obj/item/roguebin/water/gross(src)
+	new /obj/machinery/light/rogue/forge(src)
 	new /obj/machinery/anvil(src)

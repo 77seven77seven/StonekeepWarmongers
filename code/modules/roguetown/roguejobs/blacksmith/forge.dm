@@ -5,7 +5,7 @@
 	icon_state = "forge0"
 	base_state = "forge"
 	density = TRUE
-	anchored = TRUE
+	anchored = FALSE
 	on = FALSE
 	climbable = TRUE
 	climb_time = 0
